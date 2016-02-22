@@ -1,6 +1,6 @@
 {
     "name": "spatie/laravel-menu",
-    "description": ":package_description",
+    "description": "Html menu generation in Laravel",
     "keywords": [
         "spatie",
         "laravel-menu"
@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Menu\\": "src"
+            "Spatie\\Menu\\Laravel\\": "src"
         }
     },
     "autoload-dev": {
