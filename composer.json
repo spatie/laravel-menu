@@ -1,34 +1,35 @@
 {
-    "name": "spatie/:package_name",
+    "name": "spatie/laravel-menu",
     "description": ":package_description",
     "keywords": [
         "spatie",
-        ":package_name"
+        "laravel-menu"
     ],
-    "homepage": "https://github.com/spatie/:package_name",
+    "homepage": "https://github.com/spatie/laravel-menu",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "Sebastian De Deyne",
+            "email": "sebastiandedeyne@gmail.com",
             "homepage": "https://spatie.be",
             "role": "Developer"
         }
     ],
     "require": {
-        "php" : "^7.0"
+        "php" : "^7.0",
+        "spatie/menu": "dev-master"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.*"
+        "phpunit/phpunit": "5.*"
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src"
+            "Spatie\\Menu\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Test\\": "tests"
+            "Spatie\\Menu\\Test\\": "tests"
         }
     },
     "scripts": {
