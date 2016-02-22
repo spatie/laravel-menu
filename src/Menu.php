@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Navigation;
+namespace Spatie\Menu\Laravel;
 
 use Spatie\Menu\Items\Link;
 use Spatie\Menu\Menu as BaseMenu;
