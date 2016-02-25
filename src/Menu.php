@@ -10,30 +10,46 @@ class Menu extends BaseMenu
     /**
      * @var string
      */
-    protected static $requestRoot = '';
+    protected $requestRoot;
 
     /**
-     * @param string $text
      * @param string $action
-     * @param array $params
+     * @param string $text
+     * @param array $parameters
+     * @param bool $absolute
+     *
      *
      * @return static
      */
-    public function addAction(string $text, string $action, array $params = [])
+    public function addAction(string $action, string $text, array $parameters = [], $absolute = true)
     {
-        return $this->addLink($text, action($action, $params));
+        return $this->addItem(Link::create(action($action, $parameters, $absolute), $text));
     }
 
     /**
      * @param string $text
      * @param string $name
-     * @param array $params
+     * @param array $parameters
+     * @param bool $absolute
      *
      * @return static
      */
-    public function addRoute(string $text, string $name, array $params = [])
+    public function addRoute(string $name, string $text, array $parameters = [], $absolute = true)
     {
-        return $this->addLink($text, route($name, $params));
+        return $this->addItem(Link::create(route($name, $parameters, $absolute), $text));
+    }
+
+    /**
+     * @param string $path
+     * @param string $text
+     * @param array $parameters
+     * @param bool $secure
+     *
+     * @return static
+     */
+    public function addUrl(string $path, string $text, $parameters = [], $secure = true)
+    {
+        return $this->addItem(Link::create(url($path, $parameters, $secure), $text));
     }
 
     /**
@@ -57,7 +73,7 @@ class Menu extends BaseMenu
             }
 
             // The root (home) page is a special case
-            if ($path === static::$requestRoot) {
+            if ($path === $this->requestRoot) {
                 return $path === $requestPath;
             }
 
@@ -67,9 +83,13 @@ class Menu extends BaseMenu
 
     /**
      * @param string $requestRoot
+     *
+     * @return static
      */
-    public static function setRequestRoot(string $requestRoot)
+    public function setRequestRoot(string $requestRoot)
     {
-        static::$requestRoot = $requestRoot;
+        $this->requestRoot = $requestRoot;
+
+        return $this;
     }
 }
