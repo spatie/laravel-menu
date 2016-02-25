@@ -17,7 +17,7 @@
     ],
     "require": {
         "php" : "^7.0",
-        "spatie/menu": "dev-master"
+        "spatie/menu": "^0.1"
     },
     "require-dev": {
         "phpunit/phpunit": "5.*"
