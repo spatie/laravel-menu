@@ -60,7 +60,11 @@ class Menu extends BaseMenu
         $requestHost = request()->getHost();
         $requestPath = request()->path();
 
-        return $this->setActive(function (Link $link) use ($requestHost, $requestPath) {
+        $this->manipulate(function (Menu $menu) {
+            $menu->setActiveFromRequest();
+        });
+
+        $this->setActive(function (Link $link) use ($requestHost, $requestPath) {
 
             $parsed = parse_url($link->url());
 
@@ -79,6 +83,8 @@ class Menu extends BaseMenu
 
             return strpos($requestPath, $path) === 0;
         });
+
+        return $this;
     }
 
     /**
