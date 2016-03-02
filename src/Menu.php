@@ -8,11 +8,6 @@ use Spatie\Menu\Menu as BaseMenu;
 class Menu extends BaseMenu
 {
     /**
-     * @var string
-     */
-    protected $requestRoot;
-
-    /**
      * @param string $action
      * @param string $text
      * @param array $parameters
@@ -53,9 +48,11 @@ class Menu extends BaseMenu
     }
 
     /**
+     * @param string $requestRoot
+     *
      * @return static
      */
-    public function setActiveFromRequest()
+    public function setActiveFromRequest(string $requestRoot = '')
     {
         $requestHost = request()->getHost();
         $requestPath = request()->path();
@@ -64,7 +61,7 @@ class Menu extends BaseMenu
             $menu->setActiveFromRequest();
         });
 
-        $this->setActive(function (Link $link) use ($requestHost, $requestPath) {
+        $this->setActive(function (Link $link) use ($requestHost, $requestPath, $requestRoot) {
 
             $parsed = parse_url($link->url());
 
@@ -77,24 +74,12 @@ class Menu extends BaseMenu
             }
 
             // The root (home) page is a special case
-            if ($path === $this->requestRoot) {
+            if ($path === $requestRoot) {
                 return $path === $requestPath;
             }
 
             return strpos($requestPath, $path) === 0;
         });
-
-        return $this;
-    }
-
-    /**
-     * @param string $requestRoot
-     *
-     * @return static
-     */
-    public function setRequestRoot(string $requestRoot)
-    {
-        $this->requestRoot = $requestRoot;
 
         return $this;
     }
