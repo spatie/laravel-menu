@@ -1,3 +1,7 @@
+## Work in progress
+
+Do not use (yet)
+
 # laravel-menu
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-menu.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-menu)
