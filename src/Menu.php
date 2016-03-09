@@ -14,8 +14,8 @@ class Menu extends BaseMenu
      */
     public function setActiveFromRequest(string $requestRoot = '')
     {
-        $requestHost = request()->getHost();
-        $requestPath = request()->path();
+        $requestHost = app('request')->getHost();
+        $requestPath = app('request')->path();
 
         $this->each(function (BaseMenu $menu) {
             $menu->setActiveFromRequest();
