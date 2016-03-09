@@ -8,46 +8,6 @@ use Spatie\Menu\Menu as BaseMenu;
 class Menu extends BaseMenu
 {
     /**
-     * @param string $action
-     * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
-     *
-     *
-     * @return static
-     */
-    public function addAction(string $action, string $text, array $parameters = [], $absolute = true)
-    {
-        return $this->addItem(Link::create(action($action, $parameters, $absolute), $text));
-    }
-
-    /**
-     * @param string $text
-     * @param string $name
-     * @param array $parameters
-     * @param bool $absolute
-     *
-     * @return static
-     */
-    public function addRoute(string $name, string $text, array $parameters = [], $absolute = true)
-    {
-        return $this->addItem(Link::create(route($name, $parameters, $absolute), $text));
-    }
-
-    /**
-     * @param string $path
-     * @param string $text
-     * @param array $parameters
-     * @param bool $secure
-     *
-     * @return static
-     */
-    public function addUrl(string $path, string $text, $parameters = [], $secure = true)
-    {
-        return $this->addItem(Link::create(url($path, $parameters, $secure), $text));
-    }
-
-    /**
      * @param string $requestRoot
      *
      * @return static
@@ -57,13 +17,13 @@ class Menu extends BaseMenu
         $requestHost = request()->getHost();
         $requestPath = request()->path();
 
-        $this->manipulate(function (Menu $menu) {
+        $this->each(function (BaseMenu $menu) {
             $menu->setActiveFromRequest();
         });
 
         $this->setActive(function (Link $link) use ($requestHost, $requestPath, $requestRoot) {
 
-            $parsed = parse_url($link->url());
+            $parsed = parse_url($link->getUrl());
 
             $host = trim($parsed['host'] ?? '', '/');
             $path = trim($parsed['path'] ?? '', '/');
