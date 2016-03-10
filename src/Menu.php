@@ -2,11 +2,14 @@
 
 namespace Spatie\Menu\Laravel;
 
+use Illuminate\Support\Traits\Macroable;
 use Spatie\Menu\Items\Link;
 use Spatie\Menu\Menu as BaseMenu;
 
 class Menu extends BaseMenu
 {
+    use Macroable;
+
     /**
      * @param string $requestRoot
      *
