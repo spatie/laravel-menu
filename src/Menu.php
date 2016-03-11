@@ -14,7 +14,7 @@ class Menu extends BaseMenu
      * Set all relevant children active based on the current request's URL.
      *
      * /, /about, /contact => request to /about will set the about link active.
-     * 
+     *
      * /en, /en/about, /en/contact => request to /en won't set /en active if the request root
      *                                is set to /en.
      *
