@@ -29,7 +29,7 @@ class Menu extends BaseMenu
         $requestHost = app('request')->getHost();
         $requestPath = app('request')->path();
 
-        $this->each(function (Menu $menu) {
+        $this->applyToAll(function (Menu $menu) {
             $menu->setActiveFromRequest();
         });
 
