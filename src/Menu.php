@@ -33,7 +33,7 @@ class Menu extends BaseMenu
             $menu->setActiveFromRequest();
         });
 
-        $this->setActive(function (Link $link) use ($requestHost, $requestPath, $requestRoot) {
+        $this->applyToAll(function (Link $link) use ($requestHost, $requestPath, $requestRoot) {
 
             $parsed = parse_url($link->getUrl());
 
@@ -42,15 +42,18 @@ class Menu extends BaseMenu
 
             // If the menu item is on a different host it can't be active
             if ($host !== '' && $host !== $requestHost) {
-                return false;
+                return;
             }
 
             // The root (home) page is a special case
-            if ($path === $requestRoot) {
-                return $path === $requestPath;
+            if ($path === $requestRoot && $path === $requestPath) {
+                $link->setActive();
+                return;
             }
 
-            return strpos($requestPath, $path) === 0;
+            if (strpos($requestPath, $path) === 0) {
+                $link->setActive();
+            };
         });
 
         return $this;
