@@ -46,8 +46,11 @@ class Menu extends BaseMenu
             }
 
             // The root (home) page is a special case
-            if ($path === $requestRoot && $path === $requestPath) {
-                $link->setActive();
+            if ($path === $requestRoot) {
+                if ($path === $requestPath) {
+                    $link->setActive();
+                }
+
                 return;
             }
 
