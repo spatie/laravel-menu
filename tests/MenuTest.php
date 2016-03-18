@@ -2,7 +2,7 @@
 
 namespace Spatie\Menu\Laravel\Test;
 
-use Spatie\Menu\Laravel\Items\Link;
+use Spatie\Menu\Laravel\Link;
 use Spatie\Menu\Laravel\Menu;
 
 class MenuTest extends TestCase

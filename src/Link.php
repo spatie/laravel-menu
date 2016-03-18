@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Menu\Laravel\Items;
+namespace Spatie\Menu\Laravel;
 
 use Illuminate\Support\Traits\Macroable;
-use Spatie\Menu\Items\Link as BaseLink;
+use Spatie\Menu\Link as BaseLink;
 
 class Link extends BaseLink
 {
@@ -13,9 +13,9 @@ class Link extends BaseLink
      * @param string $path
      * @param string $text
      * @param array $parameters
-     * @param null $secure
+     * @param bool|null $secure
      *
-     * @return static
+     * @return $this
      */
     public static function url(string $path, string $text, $parameters = [], $secure = null)
     {
@@ -28,7 +28,7 @@ class Link extends BaseLink
      * @param array $parameters
      * @param bool $absolute
      *
-     * @return static
+     * @return $this
      */
     public static function action(string $action, string $text, $parameters = [], $absolute = true)
     {
@@ -40,9 +40,9 @@ class Link extends BaseLink
      * @param string $text
      * @param array $parameters
      * @param bool $absolute
-     * @param null $route
+     * @param \Illuminate\Routing\Route|null $route
      *
-     * @return static
+     * @return $this
      */
     public static function route(string $name, string $text, $parameters = [], $absolute = true, $route = null)
     {

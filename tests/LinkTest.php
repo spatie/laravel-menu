@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Menu\Laravel\Test\Items;
+namespace Spatie\Menu\Laravel\Test;
 
-use Spatie\Menu\Laravel\Items\Link;
+use Spatie\Menu\Laravel\Link;
 use Spatie\Menu\Laravel\Test\DummyController;
 use Spatie\Menu\Laravel\Test\TestCase;
 

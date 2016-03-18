@@ -3,7 +3,6 @@
 namespace Spatie\Menu\Laravel;
 
 use Illuminate\Support\Traits\Macroable;
-use Spatie\Menu\Items\Link;
 use Spatie\Menu\Menu as BaseMenu;
 
 class Menu extends BaseMenu
@@ -22,44 +21,50 @@ class Menu extends BaseMenu
      *                            link won't be set active. This behavior is to avoid having home
      *                            links active on every request.
      *
-     * @return static
+     * @return $this
      */
     public function setActiveFromRequest(string $requestRoot = '')
     {
-        $requestHost = app('request')->getHost();
-        $requestPath = app('request')->path();
-        $requestRoot = trim($requestRoot, '/');
+        return $this->setActive(app('request')->url(), $requestRoot);
+    }
 
-        $this->applyToAll(function (Menu $menu) {
-            $menu->setActiveFromRequest();
-        });
+    /**
+     * @param string $path
+     * @param string $text
+     * @param array $parameters
+     * @param bool|null $secure
+     *
+     * @return $this
+     */
+    public function url(string $path, string $text, $parameters = [], $secure = null)
+    {
+        return Link::url($path, $text, $parameters, $secure);
+    }
 
-        $this->applyToAll(function (Link $link) use ($requestHost, $requestPath, $requestRoot) {
+    /**
+     * @param string $action
+     * @param string $text
+     * @param array $parameters
+     * @param bool $absolute
+     *
+     * @return $this
+     */
+    public function action(string $action, string $text, $parameters = [], $absolute = true)
+    {
+        return Link::action($action, $text, $parameters, $absolute);
+    }
 
-            $parsed = parse_url($link->getUrl());
-
-            $host = trim($parsed['host'] ?? '', '/');
-            $path = trim($parsed['path'] ?? '', '/');
-
-            // If the menu item is on a different host it can't be active
-            if ($host !== '' && $host !== $requestHost) {
-                return;
-            }
-
-            // The root (home) page is a special case
-            if ($path === $requestRoot) {
-                if ($path === $requestPath) {
-                    $link->setActive();
-                }
-
-                return;
-            }
-
-            if (strpos($requestPath, $path) === 0) {
-                $link->setActive();
-            };
-        });
-
-        return $this;
+    /**
+     * @param string $name
+     * @param string $text
+     * @param array $parameters
+     * @param bool $absolute
+     * @param \Illuminate\Routing\Route|null $route
+     *
+     * @return $this
+     */
+    public function route(string $name, string $text, $parameters = [], $absolute = true, $route = null)
+    {
+        return Link::route($name, $text, $parameters, $absolute, $route);
     }
 }
