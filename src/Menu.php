@@ -38,7 +38,7 @@ class Menu extends BaseMenu
      */
     public function url(string $path, string $text, $parameters = [], $secure = null)
     {
-        return Link::url($path, $text, $parameters, $secure);
+        return $this->add(Link::url($path, $text, $parameters, $secure));
     }
 
     /**
@@ -51,7 +51,7 @@ class Menu extends BaseMenu
      */
     public function action(string $action, string $text, $parameters = [], $absolute = true)
     {
-        return Link::action($action, $text, $parameters, $absolute);
+        return $this->add(Link::action($action, $text, $parameters, $absolute));
     }
 
     /**
@@ -65,6 +65,6 @@ class Menu extends BaseMenu
      */
     public function route(string $name, string $text, $parameters = [], $absolute = true, $route = null)
     {
-        return Link::route($name, $text, $parameters, $absolute, $route);
+        return $this->add(Link::route($name, $text, $parameters, $absolute, $route));
     }
 }
