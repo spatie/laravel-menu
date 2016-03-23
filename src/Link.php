@@ -30,7 +30,7 @@ class Link extends BaseLink
      *
      * @return $this
      */
-    public static function action(string $action, string $text, $parameters = [], $absolute = true)
+    public static function action(string $action, string $text, $parameters = [], bool $absolute = true)
     {
         return static::to(action($action, $parameters, $absolute), $text);
     }
