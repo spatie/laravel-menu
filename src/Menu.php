@@ -36,7 +36,7 @@ class Menu extends BaseMenu
      *
      * @return $this
      */
-    public function url(string $path, string $text, $parameters = [], $secure = null)
+    public function url(string $path, string $text, array $parameters = [], $secure = null)
     {
         return $this->add(Link::url($path, $text, $parameters, $secure));
     }
@@ -49,7 +49,7 @@ class Menu extends BaseMenu
      *
      * @return $this
      */
-    public function action(string $action, string $text, $parameters = [], $absolute = true)
+    public function action(string $action, string $text, array $parameters = [], bool $absolute = true)
     {
         return $this->add(Link::action($action, $text, $parameters, $absolute));
     }
@@ -63,7 +63,7 @@ class Menu extends BaseMenu
      *
      * @return $this
      */
-    public function route(string $name, string $text, $parameters = [], $absolute = true, $route = null)
+    public function route(string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
     {
         return $this->add(Link::route($name, $text, $parameters, $absolute, $route));
     }
