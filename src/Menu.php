@@ -14,12 +14,13 @@ class Menu extends BaseMenu
      *
      * /, /about, /contact => request to /about will set the about link active.
      *
-     * /en, /en/about, /en/contact => request to /en won't set /en active if the request root
-     *                                is set to /en.
+     * /en, /en/about, /en/contact => request to /en won't set /en active if the
+     *                                request root is set to /en.
      *
-     * @param string $requestRoot If the link's URL is an exact match with the request root, the
-     *                            link won't be set active. This behavior is to avoid having home
-     *                            links active on every request.
+     * @param string $requestRoot If the link's URL is an exact match with the
+     *                            request root, the link won't be set active.
+     *                            This behavior is to avoid having home links
+     *                            active on every request.
      *
      * @return $this
      */
