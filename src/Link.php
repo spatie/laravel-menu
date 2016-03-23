@@ -17,7 +17,7 @@ class Link extends BaseLink
      *
      * @return $this
      */
-    public static function url(string $path, string $text, $parameters = [], $secure = null)
+    public static function url(string $path, string $text, array $parameters = [], $secure = null)
     {
         return static::to(url($path, $parameters, $secure), $text);
     }
@@ -30,7 +30,7 @@ class Link extends BaseLink
      *
      * @return $this
      */
-    public static function action(string $action, string $text, $parameters = [], bool $absolute = true)
+    public static function action(string $action, string $text, array $parameters = [], bool $absolute = true)
     {
         return static::to(action($action, $parameters, $absolute), $text);
     }
@@ -44,7 +44,7 @@ class Link extends BaseLink
      *
      * @return $this
      */
-    public static function route(string $name, string $text, $parameters = [], $absolute = true, $route = null)
+    public static function route(string $name, string $text, array $parameters = [], $absolute = true, $route = null)
     {
         return static::to(route($name, $parameters, $absolute, $route), $text);
     }
