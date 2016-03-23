@@ -3,8 +3,6 @@
 namespace Spatie\Menu\Laravel\Test;
 
 use Spatie\Menu\Laravel\Link;
-use Spatie\Menu\Laravel\Test\DummyController;
-use Spatie\Menu\Laravel\Test\TestCase;
 
 class LinkTest extends TestCase
 {
