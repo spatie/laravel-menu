@@ -1,6 +1,6 @@
 {
     "name": "spatie/laravel-menu",
-    "description": "Html menu generation in Laravel",
+    "description": "Html menu generator for Laravel",
     "keywords": [
         "spatie",
         "laravel-menu"

@@ -2,19 +2,5 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
-## NEXT - YYYY-MM-DD
-
-### Added
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+## 1.0.0
+- First release
