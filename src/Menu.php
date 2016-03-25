@@ -3,9 +3,10 @@
 namespace Spatie\Menu\Laravel;
 
 use Illuminate\Support\Traits\Macroable;
+use Illuminate\Contracts\Support\Htmlable;
 use Spatie\Menu\Menu as BaseMenu;
 
-class Menu extends BaseMenu
+class Menu extends BaseMenu implements Htmlable
 {
     use Macroable;
 
@@ -68,4 +69,14 @@ class Menu extends BaseMenu
     {
         return $this->add(Link::route($name, $text, $parameters, $absolute, $route));
     }
+
+    /**
+     * Get content as a string of HTML.
+     *
+     * @return string
+     */
+     public function toHtml() : string
+     {
+        return $this->render();
+     }
 }
