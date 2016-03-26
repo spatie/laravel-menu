@@ -4,6 +4,7 @@ namespace Spatie\Menu\Laravel\Test;
 
 use Spatie\Menu\Laravel\Link;
 use Spatie\Menu\Laravel\Menu;
+use Illuminate\Contracts\Support\Htmlable;
 
 class MenuTest extends TestCase
 {
@@ -24,5 +25,17 @@ class MenuTest extends TestCase
             </ul>',
             $menu
         );
+    }
+
+    /** @test */
+    function it_should_be_htmlable()
+    {
+        $menu = Menu::new()->add(Link::route('home', 'Home'));
+
+        $this->assertTrue(
+            (new \ReflectionClass($menu))->implementsInterface(Htmlable::class)
+        );
+
+        $this->assertEquals($menu->render(), $menu->toHtml());
     }
 }
