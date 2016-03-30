@@ -2,6 +2,7 @@
 
 namespace Spatie\Menu\Laravel\Test;
 
+use Illuminate\Contracts\Auth\Access\Gate;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Spatie\Menu\Item;
 
@@ -13,6 +14,14 @@ class TestCase extends BaseTestCase
 
         $this->app['router']->get('/', ['as' => 'home', 'uses' => DummyController::class . '@home']);
         $this->app['router']->get('/post/{id}', ['as' => 'post', 'uses' => DummyController::class . '@post']);
+
+        $this->app->make(Gate::class)->define('computerSaysYes', function () {
+            return true;
+        });
+
+        $this->app->make(Gate::class)->define('computerSaysNo', function () {
+            return false;
+        });
     }
 
     protected function assertRenders(string $expected, Item $item, string $message = '')

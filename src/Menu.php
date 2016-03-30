@@ -4,6 +4,7 @@ namespace Spatie\Menu\Laravel;
 
 use Illuminate\Support\Traits\Macroable;
 use Gate;
+use Spatie\Menu\Item;
 use Spatie\Menu\Menu as BaseMenu;
 
 class Menu extends BaseMenu
@@ -115,16 +116,16 @@ class Menu extends BaseMenu
 
     /**
      * @param string|array $authorization
-     * @param \Spatie\Menu\Laravel\Item $item
+     * @param \Spatie\Menu\Item $item
      *
      * @return $this
      */
     public function addIfCan($authorization, Item $item)
     {
-        $arguments = is_array($authorization) ? $authorization : [$authorization];
+        $ablityArguments = is_array($authorization) ? $authorization : [$authorization];
         $ability = array_shift($ablityArguments);
 
-        return $this->addIf(Gate::allows($ability, $arguments), $item);
+        return $this->addIf(Gate::allows($ability, $ablityArguments), $item);
     }
 
     /**
