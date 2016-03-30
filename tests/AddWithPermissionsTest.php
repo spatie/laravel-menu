@@ -8,9 +8,6 @@ use Spatie\Menu\Laravel\Menu;
 
 class AddWithPermissionsTest extends TestCase
 {
-    /** @var \Illuminate\Auth\GenericUser */
-    protected $user;
-
     public function setUp()
     {
         parent::setUp();
@@ -33,6 +30,110 @@ class AddWithPermissionsTest extends TestCase
         $this->assertRenders(
             '<ul></ul>',
             Menu::new()->addIfCan('computerSaysNo', Link::to('/', 'Home'))
+        );
+    }
+
+    /** @test */
+    function it_parses_argument_if_an_ability_is_provided_as_an_array()
+    {
+        $this->assertRenders(
+            '<ul><li><a href="/">Home</a></li></ul>',
+            Menu::new()->addIfCan(['computerSaysMaybe', true], Link::to('/', 'Home'))
+        );
+
+        $this->assertRenders(
+            '<ul></ul>',
+            Menu::new()->addIfCan(['computerSaysMaybe', false], Link::to('/', 'Home'))
+        );
+    }
+
+    /** @test */
+    function it_adds_a_link_if_the_user_has_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul><li><a href="/">Home</a></li></ul>',
+            Menu::new()->linkIfCan('computerSaysYes', '/', 'Home')
+        );
+    }
+
+    /** @test */
+    function it_doesnt_add_a_link_if_the_user_doesnt_have_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul></ul>',
+            Menu::new()->linkIfCan('computerSaysNo', '/', 'Home')
+        );
+    }
+
+    /** @test */
+    function it_adds_html_if_the_user_has_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul><li><a href="/">Home</a></li></ul>',
+            Menu::new()->htmlIfCan('computerSaysYes', '<a href="/">Home</a>')
+        );
+    }
+
+    /** @test */
+    function it_doesnt_add_html_if_the_user_doesnt_have_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul></ul>',
+            Menu::new()->htmlIfCan('computerSaysNo', '<a href="/">Home</a>')
+        );
+    }
+
+    /** @test */
+    function it_adds_a_url_if_the_user_has_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul><li><a href="http://localhost">Home</a></li></ul>',
+            Menu::new()->urlIfCan('computerSaysYes', '/', 'Home')
+        );
+    }
+
+    /** @test */
+    function it_doesnt_add_a_url_if_the_user_doesnt_have_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul></ul>',
+            Menu::new()->urlIfCan('computerSaysNo', '/', 'Home')
+        );
+    }
+
+    /** @test */
+    function it_adds_an_action_if_the_user_has_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul><li><a href="http://localhost">Home</a></li></ul>',
+            Menu::new()->actionIfCan('computerSaysYes', DummyController::class . '@home', 'Home')
+        );
+    }
+
+    /** @test */
+    function it_doesnt_add_an_action_if_the_user_doesnt_have_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul></ul>',
+            Menu::new()->actionIfCan('computerSaysNo', DummyController::class . '@home', 'Home')
+        );
+    }
+
+    /** @test */
+    function it_adds_a_route_if_the_user_has_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul><li><a href="http://localhost">Home</a></li></ul>',
+            Menu::new()->routeIfCan('computerSaysYes', 'home', 'Home')
+        );
+    }
+
+    /** @test */
+    function it_doesnt_add_a_route_if_the_user_doesnt_have_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul></ul>',
+            Menu::new()->routeIfCan('computerSaysNo', 'home', 'Home')
         );
     }
 }

@@ -3,7 +3,7 @@
 namespace Spatie\Menu\Laravel;
 
 use Illuminate\Support\Traits\Macroable;
-use Gate;
+use Illuminate\Contracts\Auth\Access\Gate;
 use Spatie\Menu\Item;
 use Spatie\Menu\Menu as BaseMenu;
 
@@ -125,7 +125,7 @@ class Menu extends BaseMenu
         $ablityArguments = is_array($authorization) ? $authorization : [$authorization];
         $ability = array_shift($ablityArguments);
 
-        return $this->addIf(Gate::allows($ability, $ablityArguments), $item);
+        return $this->addIf(app(Gate::class)->allows($ability, $ablityArguments), $item);
     }
 
     /**

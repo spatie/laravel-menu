@@ -22,6 +22,10 @@ class TestCase extends BaseTestCase
         $this->app->make(Gate::class)->define('computerSaysNo', function () {
             return false;
         });
+
+        $this->app->make(Gate::class)->define('computerSaysMaybe', function ($user, $argument) {
+            return $argument;
+        });
     }
 
     protected function assertRenders(string $expected, Item $item, string $message = '')

@@ -5,7 +5,7 @@ namespace Spatie\Menu\Laravel\Test;
 use Spatie\Menu\Laravel\Link;
 use Spatie\Menu\Laravel\Menu;
 
-class MenuTest extends TestCase
+class SetActiveTest extends TestCase
 {
     /** @test */
     function it_can_set_items_active_based_on_the_current_request()
