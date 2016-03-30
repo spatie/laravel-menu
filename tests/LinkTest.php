@@ -20,7 +20,7 @@ class LinkTest extends TestCase
     {
         $this->assertRenders(
             '<a href="http://localhost/post/1">Post #1</a>',
-            Link::url('/post', 'Post #1', ['id' => 1])
+            Link::url('post', 'Post #1', ['id' => 1])
         );
     }
 
