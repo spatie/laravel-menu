@@ -2,12 +2,13 @@
 
 namespace Spatie\Menu\Laravel;
 
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Traits\Macroable;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Spatie\Menu\Item;
 use Spatie\Menu\Menu as BaseMenu;
 
-class Menu extends BaseMenu
+class Menu extends BaseMenu implements Htmlable
 {
     use Macroable;
 
@@ -192,5 +193,13 @@ class Menu extends BaseMenu
     public function routeIfCan($authorization, string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
     {
         return $this->addIfCan($authorization, Link::route($name, $text, $parameters, $absolute, $route));
+    }
+
+    /**
+     * @return string
+     */
+    public function toHtml() : string
+    {
+        return $this->render();
     }
 }
