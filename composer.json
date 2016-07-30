@@ -1,5 +1,5 @@
 {
-    "name": "spatie/laravel-menu",
+    "name": "BoutonLLC/laravel-menu",
     "description": "Html menu generator for Laravel",
     "keywords": [
         "spatie",
@@ -17,9 +17,9 @@
     ],
     "require": {
         "php" : "^7.0",
-        "illuminate/auth": "~5.1.14|~5.2.0",
-        "illuminate/contracts": "~5.1.14|~5.2.0",
-        "illuminate/support": "~5.1.14|~5.2.0",
+        "illuminate/auth": "~5.1.14|~5.2.0|~5.3.0",
+        "illuminate/contracts": "~5.1.14|~5.2.0|~5.3.0",
+        "illuminate/support": "~5.1.14|~5.2.0|~5.3.0",
         "spatie/menu": "^1.1.0"
     },
     "require-dev": {
