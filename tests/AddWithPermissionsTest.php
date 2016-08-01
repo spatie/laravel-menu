@@ -136,4 +136,22 @@ class AddWithPermissionsTest extends TestCase
             Menu::new()->routeIfCan('computerSaysNo', 'home', 'Home')
         );
     }
+
+    /** @test */
+    function it_adds_a_submenu_if_the_user_has_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul><li><a href="home">Home</a><ul><li><a href="sub">Sub</a></li></ul></li></ul>',
+            Menu::new()->submenuIfCan('computerSaysYes', Link::to('home', 'Home'), Menu::new()->link('sub', 'Sub'))
+        );
+    }
+
+    /** @test */
+    function it_doesnt_add_a_submenu_if_the_user_doesnt_have_a_certain_ability()
+    {
+        $this->assertRenders(
+            '<ul></ul>',
+            Menu::new()->submenuIfCan('computerSaysNo', Link::to('home', 'Home'), Menu::new()->link('sub', 'Sub'))
+        );
+    }
 }

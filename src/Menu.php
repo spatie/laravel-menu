@@ -196,6 +196,39 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
+     * @param string|array $authorization
+     * @param callable|\Spatie\Menu\Menu|\Spatie\Menu\Item $header
+     * @param callable|\Spatie\Menu\Menu|null $menu
+     *
+     * @return $this
+     */
+    public function submenuIfCan($authorization, $header, $menu = null)
+    {
+        list($authorization, $header, $menu) = $this->parseSubmenuIfCanArgs(func_get_args());
+
+        if (is_callable($menu)) {
+            $transformer = $menu;
+            $menu = $this->blueprint();
+            $transformer($menu);
+        }
+
+        if ($header instanceof Item) {
+            $header = $header->render();
+        }
+
+        return $this->addIfCan($authorization, $menu->prependIf($header, $header));
+    }
+
+    protected function parseSubmenuIfCanArgs($args): array
+    {
+        if (count($args) === 2) {
+            return [$args[0], '', $args[1]];
+        }
+
+        return [$args[0], $args[1], $args[2]];
+    }
+
+    /**
      * @return string
      */
     public function toHtml() : string
