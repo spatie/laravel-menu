@@ -204,28 +204,17 @@ class Menu extends BaseMenu implements Htmlable
      */
     public function submenuIfCan($authorization, $header, $menu = null)
     {
-        list($authorization, $header, $menu) = $this->parseSubmenuIfCanArgs(func_get_args());
+        list($authorization, $header, $menu) = $this->parseSubmenuIfCanArgs(...func_get_args());
 
-        if (is_callable($menu)) {
-            $transformer = $menu;
-            $menu = $this->blueprint();
-            $transformer($menu);
-        }
-
-        if ($header instanceof Item) {
-            $header = $header->render();
-        }
+        $menu = $this->createSubmenuMenu($menu);
+        $header = $this->createSubmenuHeader($header);
 
         return $this->addIfCan($authorization, $menu->prependIf($header, $header));
     }
 
-    protected function parseSubmenuIfCanArgs($args): array
+    protected function parseSubmenuIfCanArgs($authorization, ...$args): array
     {
-        if (count($args) === 2) {
-            return [$args[0], '', $args[1]];
-        }
-
-        return [$args[0], $args[1], $args[2]];
+        return array_merge([$authorization], $this->parseSubmenuArgs($args));
     }
 
     /**
