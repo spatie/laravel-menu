@@ -12,8 +12,8 @@ class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->app['router']->get('/', ['as' => 'home', 'uses' => DummyController::class . '@home']);
-        $this->app['router']->get('/post/{id}', ['as' => 'post', 'uses' => DummyController::class . '@post']);
+        $this->app['router']->get('/', ['as' => 'home', 'uses' => DummyController::class.'@home']);
+        $this->app['router']->get('/post/{id}', ['as' => 'post', 'uses' => DummyController::class.'@post']);
 
         $this->app->make(Gate::class)->define('computerSaysYes', function () {
             return true;
