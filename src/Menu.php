@@ -2,9 +2,9 @@
 
 namespace Spatie\Menu\Laravel;
 
+use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Traits\Macroable;
-use Illuminate\Contracts\Auth\Access\Gate;
 use Spatie\Menu\Item;
 use Spatie\Menu\Menu as BaseMenu;
 
@@ -33,9 +33,9 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
-     * @param string $path
-     * @param string $text
-     * @param array $parameters
+     * @param string    $path
+     * @param string    $text
+     * @param array     $parameters
      * @param bool|null $secure
      *
      * @return $this
@@ -48,8 +48,8 @@ class Menu extends BaseMenu implements Htmlable
     /**
      * @param string $action
      * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
+     * @param array  $parameters
+     * @param bool   $absolute
      *
      * @return $this
      */
@@ -59,10 +59,10 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
-     * @param string $name
-     * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
+     * @param string                         $name
+     * @param string                         $text
+     * @param array                          $parameters
+     * @param bool                           $absolute
      * @param \Illuminate\Routing\Route|null $route
      *
      * @return $this
@@ -73,10 +73,10 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
-     * @param bool $condition
-     * @param string $path
-     * @param string $text
-     * @param array $parameters
+     * @param bool      $condition
+     * @param string    $path
+     * @param string    $text
+     * @param array     $parameters
      * @param bool|null $secure
      *
      * @return $this
@@ -87,11 +87,11 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
-     * @param bool $condition
+     * @param bool   $condition
      * @param string $action
      * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
+     * @param array  $parameters
+     * @param bool   $absolute
      *
      * @return $this
      */
@@ -101,11 +101,11 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
-     * @param bool $condition
-     * @param string $name
-     * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
+     * @param bool                           $condition
+     * @param string                         $name
+     * @param string                         $text
+     * @param array                          $parameters
+     * @param bool                           $absolute
      * @param \Illuminate\Routing\Route|null $route
      *
      * @return $this
@@ -116,7 +116,7 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
-     * @param string|array $authorization
+     * @param string|array      $authorization
      * @param \Spatie\Menu\Item $item
      *
      * @return $this
@@ -131,8 +131,8 @@ class Menu extends BaseMenu implements Htmlable
 
     /**
      * @param string|array $authorization
-     * @param string $url
-     * @param string $text
+     * @param string       $url
+     * @param string       $text
      *
      * @return $this
      */
@@ -143,7 +143,7 @@ class Menu extends BaseMenu implements Htmlable
 
     /**
      * @param string|array $authorization
-     * @param string $html
+     * @param string       $html
      *
      * @return \Spatie\Menu\Laravel\Menu
      */
@@ -154,10 +154,10 @@ class Menu extends BaseMenu implements Htmlable
 
     /**
      * @param string|array $authorization
-     * @param string $path
-     * @param string $text
-     * @param array $parameters
-     * @param bool|null $secure
+     * @param string       $path
+     * @param string       $text
+     * @param array        $parameters
+     * @param bool|null    $secure
      *
      * @return $this
      */
@@ -168,10 +168,10 @@ class Menu extends BaseMenu implements Htmlable
 
     /**
      * @param string|array $authorization
-     * @param string $action
-     * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
+     * @param string       $action
+     * @param string       $text
+     * @param array        $parameters
+     * @param bool         $absolute
      *
      * @return $this
      */
@@ -181,11 +181,11 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
-     * @param string|array $authorization
-     * @param string $name
-     * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
+     * @param string|array                   $authorization
+     * @param string                         $name
+     * @param string                         $text
+     * @param array                          $parameters
+     * @param bool                           $absolute
      * @param \Illuminate\Routing\Route|null $route
      *
      * @return $this
@@ -196,9 +196,9 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
-     * @param string|array $authorization
+     * @param string|array                                 $authorization
      * @param callable|\Spatie\Menu\Menu|\Spatie\Menu\Item $header
-     * @param callable|\Spatie\Menu\Menu|null $menu
+     * @param callable|\Spatie\Menu\Menu|null              $menu
      *
      * @return $this
      */

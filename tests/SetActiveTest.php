@@ -8,7 +8,7 @@ use Spatie\Menu\Laravel\Menu;
 class SetActiveTest extends TestCase
 {
     /** @test */
-    function it_can_set_items_active_based_on_the_current_request()
+    public function it_can_set_items_active_based_on_the_current_request()
     {
         $this->call('get', '/post/1');
 
