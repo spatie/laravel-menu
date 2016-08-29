@@ -6,11 +6,13 @@ use Illuminate\Routing\Controller;
 
 class DummyController extends Controller
 {
-    public function home() {
+    public function home()
+    {
         return response('Home');
     }
 
-    public function post() {
+    public function post()
+    {
         return response('Post');
     }
 }

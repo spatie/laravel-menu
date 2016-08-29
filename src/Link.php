@@ -10,9 +10,9 @@ class Link extends BaseLink
     use Macroable;
 
     /**
-     * @param string $path
-     * @param string $text
-     * @param array $parameters
+     * @param string    $path
+     * @param string    $text
+     * @param array     $parameters
      * @param bool|null $secure
      *
      * @return $this
@@ -25,8 +25,8 @@ class Link extends BaseLink
     /**
      * @param string $action
      * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
+     * @param array  $parameters
+     * @param bool   $absolute
      *
      * @return $this
      */
@@ -36,10 +36,10 @@ class Link extends BaseLink
     }
 
     /**
-     * @param string $name
-     * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
+     * @param string                         $name
+     * @param string                         $text
+     * @param array                          $parameters
+     * @param bool                           $absolute
      * @param \Illuminate\Routing\Route|null $route
      *
      * @return $this
