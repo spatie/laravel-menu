@@ -2,13 +2,14 @@
 
 namespace Spatie\Menu\Laravel;
 
+use Illuminate\Support\Traits\Macroable;
 use Spatie\Menu\Activatable;
 use Spatie\Menu\Item;
 use Spatie\Menu\Traits\Activatable as ActivatableTrait;
 
 class View implements Item, Activatable
 {
-    use ActivatableTrait;
+    use ActivatableTrait, Macroable;
 
     /** @var string */
     protected $name;
