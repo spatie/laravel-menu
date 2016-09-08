@@ -28,7 +28,6 @@ class TestCase extends BaseTestCase
         });
     }
 
-
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('view.paths', [__DIR__.'/resources/views']);
