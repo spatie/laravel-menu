@@ -20,7 +20,7 @@
         "illuminate/auth": "~5.1.14|~5.2.0|~5.3.0",
         "illuminate/contracts": "~5.1.14|~5.2.0|~5.3.0",
         "illuminate/support": "~5.1.14|~5.2.0|~5.3.0",
-        "spatie/menu": "^1.2.1"
+        "spatie/menu": "2.0.0-beta.2"
     },
     "require-dev": {
         "orchestra/testbench": "^3.3",

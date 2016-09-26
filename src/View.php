@@ -3,15 +3,16 @@
 namespace Spatie\Menu\Laravel;
 
 use Illuminate\Support\Traits\Macroable;
+use Spatie\HtmlElement\Attributes;
 use Spatie\Menu\Activatable;
 use Spatie\Menu\HasParentAttributes;
 use Spatie\Menu\Item;
 use Spatie\Menu\Traits\Activatable as ActivatableTrait;
-use Spatie\Menu\Traits\ParentAttributes;
+use Spatie\Menu\Traits\HasParentAttributes as HasParentAttributesTrait;
 
 class View implements Item, Activatable, HasParentAttributes
 {
-    use ActivatableTrait, Macroable, ParentAttributes;
+    use ActivatableTrait, Macroable, HasParentAttributesTrait;
 
     /** @var string */
     protected $name;
@@ -19,12 +20,14 @@ class View implements Item, Activatable, HasParentAttributes
     /** @var array */
     protected $data;
 
+    /** @var bool */
+    protected $active = false;
+
     public function __construct(string $name, array $data = [])
     {
         $this->name = $name;
         $this->data = $data;
-
-        $this->initializeParentAttributes();
+        $this->parentAttributes = new Attributes();
     }
 
     public static function create(string $name, array $data = [])

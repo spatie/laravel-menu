@@ -11,7 +11,7 @@ class LinkTest extends TestCase
     {
         $this->assertRenders(
             '<a href="http://localhost">Home</a>',
-            Link::url('/', 'Home')
+            Link::toUrl('/', 'Home')
         );
     }
 
@@ -20,7 +20,7 @@ class LinkTest extends TestCase
     {
         $this->assertRenders(
             '<a href="http://localhost/post/1">Post #1</a>',
-            Link::url('post', 'Post #1', ['id' => 1])
+            Link::toUrl('post', 'Post #1', ['id' => 1])
         );
     }
 
@@ -29,7 +29,7 @@ class LinkTest extends TestCase
     {
         $this->assertRenders(
             '<a href="http://localhost">Home</a>',
-            Link::route('home', 'Home')
+            Link::toRoute('home', 'Home')
         );
     }
 
@@ -38,7 +38,7 @@ class LinkTest extends TestCase
     {
         $this->assertRenders(
             '<a href="http://localhost/post/1">Post #1</a>',
-            Link::route('post', 'Post #1', ['id' => 1])
+            Link::toRoute('post', 'Post #1', ['id' => 1])
         );
     }
 
@@ -47,7 +47,7 @@ class LinkTest extends TestCase
     {
         $this->assertRenders(
             '<a href="http://localhost">Home</a>',
-            Link::action(DummyController::class.'@home', 'Home')
+            Link::toAction(DummyController::class.'@home', 'Home')
         );
     }
 
@@ -56,7 +56,7 @@ class LinkTest extends TestCase
     {
         $this->assertRenders(
             '<a href="http://localhost/post/1">Post #1</a>',
-            Link::action(DummyController::class.'@post', 'Post #1', ['id' => 1])
+            Link::toAction(DummyController::class.'@post', 'Post #1', ['id' => 1])
         );
     }
 }

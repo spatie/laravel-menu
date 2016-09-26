@@ -15,9 +15,9 @@ class Link extends BaseLink
      * @param array $parameters
      * @param bool|null $secure
      *
-     * @return $this
+     * @return static
      */
-    public static function url(string $path, string $text, array $parameters = [], $secure = null)
+    public static function toUrl(string $path, string $text, array $parameters = [], $secure = null)
     {
         return static::to(url($path, $parameters, $secure), $text);
     }
@@ -28,9 +28,9 @@ class Link extends BaseLink
      * @param array $parameters
      * @param bool $absolute
      *
-     * @return $this
+     * @return static
      */
-    public static function action(string $action, string $text, array $parameters = [], bool $absolute = true)
+    public static function toAction(string $action, string $text, array $parameters = [], bool $absolute = true)
     {
         return static::to(action($action, $parameters, $absolute), $text);
     }
@@ -42,9 +42,9 @@ class Link extends BaseLink
      * @param bool $absolute
      * @param \Illuminate\Routing\Route|null $route
      *
-     * @return $this
+     * @return static
      */
-    public static function route(string $name, string $text, array $parameters = [], $absolute = true, $route = null)
+    public static function toRoute(string $name, string $text, array $parameters = [], $absolute = true, $route = null)
     {
         return static::to(route($name, $parameters, $absolute, $route), $text);
     }

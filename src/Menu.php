@@ -27,7 +27,7 @@ class Menu extends BaseMenu implements Htmlable
      *
      * @return $this
      */
-    public function setActiveFromRequest(string $requestRoot = '')
+    public function setActiveFromRequest(string $requestRoot = '/')
     {
         return $this->setActive(app('request')->url(), $requestRoot);
     }
@@ -42,7 +42,7 @@ class Menu extends BaseMenu implements Htmlable
      */
     public function url(string $path, string $text, array $parameters = [], $secure = null)
     {
-        return $this->add(Link::url($path, $text, $parameters, $secure));
+        return $this->add(Link::toUrl($path, $text, $parameters, $secure));
     }
 
     /**
@@ -55,7 +55,7 @@ class Menu extends BaseMenu implements Htmlable
      */
     public function action(string $action, string $text, array $parameters = [], bool $absolute = true)
     {
-        return $this->add(Link::action($action, $text, $parameters, $absolute));
+        return $this->add(Link::toAction($action, $text, $parameters, $absolute));
     }
 
     /**
@@ -69,7 +69,7 @@ class Menu extends BaseMenu implements Htmlable
      */
     public function route(string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
     {
-        return $this->add(Link::route($name, $text, $parameters, $absolute, $route));
+        return $this->add(Link::toRoute($name, $text, $parameters, $absolute, $route));
     }
 
     /**
@@ -83,7 +83,7 @@ class Menu extends BaseMenu implements Htmlable
      */
     public function urlIf($condition, string $path, string $text, array $parameters = [], $secure = null)
     {
-        return $this->addIf($condition, Link::url($path, $text, $parameters, $secure));
+        return $this->addIf($condition, Link::toUrl($path, $text, $parameters, $secure));
     }
 
     /**
@@ -97,7 +97,7 @@ class Menu extends BaseMenu implements Htmlable
      */
     public function actionIf($condition, string $action, string $text, array $parameters = [], bool $absolute = true)
     {
-        return $this->addIf($condition, Link::action($action, $text, $parameters, $absolute));
+        return $this->addIf($condition, Link::toAction($action, $text, $parameters, $absolute));
     }
 
     /**
@@ -112,7 +112,7 @@ class Menu extends BaseMenu implements Htmlable
      */
     public function routeIf($condition, string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
     {
-        return $this->addIf($condition, Link::route($name, $text, $parameters, $absolute, $route));
+        return $this->addIf($condition, Link::toRoute($name, $text, $parameters, $absolute, $route));
     }
 
     /**
@@ -163,7 +163,7 @@ class Menu extends BaseMenu implements Htmlable
      */
     public function urlIfCan($authorization, string $path, string $text, array $parameters = [], $secure = null)
     {
-        return $this->addIfCan($authorization, Link::url($path, $text, $parameters, $secure));
+        return $this->addIfCan($authorization, Link::toUrl($path, $text, $parameters, $secure));
     }
 
     /**
@@ -177,7 +177,7 @@ class Menu extends BaseMenu implements Htmlable
      */
     public function actionIfCan($authorization, string $action, string $text, array $parameters = [], bool $absolute = true)
     {
-        return $this->addIfCan($authorization, Link::action($action, $text, $parameters, $absolute));
+        return $this->addIfCan($authorization, Link::toAction($action, $text, $parameters, $absolute));
     }
 
     /**
@@ -192,7 +192,7 @@ class Menu extends BaseMenu implements Htmlable
      */
     public function routeIfCan($authorization, string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
     {
-        return $this->addIfCan($authorization, Link::route($name, $text, $parameters, $absolute, $route));
+        return $this->addIfCan($authorization, Link::toRoute($name, $text, $parameters, $absolute, $route));
     }
 
     /**

@@ -13,8 +13,8 @@ class SetActiveTest extends TestCase
         $this->call('get', '/post/1');
 
         $menu = Menu::new()
-            ->add(Link::route('home', 'Home'))
-            ->add(Link::route('post', 'Post #1', [1]))
+            ->add(Link::toRoute('home', 'Home'))
+            ->add(Link::toRoute('post', 'Post #1', [1]))
             ->setActiveFromRequest();
 
         $this->assertRenders(
