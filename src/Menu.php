@@ -73,6 +73,17 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
+     * @param string $name
+     * @param array $data
+     *
+     * @return $this
+     */
+    public function view(string $name, array $data = [])
+    {
+        return $this->add(View::create($name, $data));
+    }
+
+    /**
      * @param bool $condition
      * @param string $path
      * @param string $text
@@ -116,6 +127,18 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
+     * @param $condition
+     * @param string $name
+     * @param array $data
+     *
+     * @return $this
+     */
+    public function viewIf($condition, string $name, array $data)
+    {
+        return $this->addIf($condition, View::create($name, $data));
+    }
+
+    /**
      * @param string|array $authorization
      * @param \Spatie\Menu\Item $item
      *
@@ -150,6 +173,28 @@ class Menu extends BaseMenu implements Htmlable
     public function htmlIfCan($authorization, string $html)
     {
         return $this->addIfCan($authorization, Html::raw($html));
+    }
+
+    /**
+     * @param string|array $authorization
+     * @param callable|\Spatie\Menu\Menu|\Spatie\Menu\Item $header
+     * @param callable|\Spatie\Menu\Menu|null $menu
+     *
+     * @return $this
+     */
+    public function submenuIfCan($authorization, $header, $menu = null)
+    {
+        list($authorization, $header, $menu) = $this->parseSubmenuIfCanArgs(...func_get_args());
+
+        $menu = $this->createSubmenuMenu($menu);
+        $header = $this->createSubmenuHeader($header);
+
+        return $this->addIfCan($authorization, $menu->prependIf($header, $header));
+    }
+
+    protected function parseSubmenuIfCanArgs($authorization, ...$args): array
+    {
+        return array_merge([$authorization], $this->parseSubmenuArgs($args));
     }
 
     /**
@@ -196,25 +241,15 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
-     * @param string|array $authorization
-     * @param callable|\Spatie\Menu\Menu|\Spatie\Menu\Item $header
-     * @param callable|\Spatie\Menu\Menu|null $menu
+     * @param $condition
+     * @param string $name
+     * @param array $data
      *
      * @return $this
      */
-    public function submenuIfCan($authorization, $header, $menu = null)
+    public function viewIfCan($authorization, string $name, array $data)
     {
-        list($authorization, $header, $menu) = $this->parseSubmenuIfCanArgs(...func_get_args());
-
-        $menu = $this->createSubmenuMenu($menu);
-        $header = $this->createSubmenuHeader($header);
-
-        return $this->addIfCan($authorization, $menu->prependIf($header, $header));
-    }
-
-    protected function parseSubmenuIfCanArgs($authorization, ...$args): array
-    {
-        return array_merge([$authorization], $this->parseSubmenuArgs($args));
+        return $this->addIfCan($authorization, View::create($name, $data));
     }
 
     /**

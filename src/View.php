@@ -30,11 +30,20 @@ class View implements Item, Activatable, HasParentAttributes
         $this->parentAttributes = new Attributes();
     }
 
+    /**
+     * @param string $name
+     * @param array $data
+     *
+     * @return static
+     */
     public static function create(string $name, array $data = [])
     {
         return new static($name, $data);
     }
 
+    /**
+     * @return string
+     */
     public function render(): string
     {
         return view($this->name)
