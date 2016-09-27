@@ -38,7 +38,13 @@ class View implements Item, Activatable, HasParentAttributes
      */
     public static function create(string $name, array $data = [])
     {
-        return new static($name, $data);
+        $view = new static($name, $data);
+
+        if (array_key_exists('url', $data)) {
+            $view->setUrl($data['url']);
+        }
+
+        return $view;
     }
 
     /**

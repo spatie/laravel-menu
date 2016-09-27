@@ -2,6 +2,7 @@
 
 namespace Spatie\Menu\Laravel\Test;
 
+use Spatie\Menu\Laravel\Menu;
 use Spatie\Menu\Laravel\View;
 
 class ViewTest extends TestCase
@@ -23,5 +24,21 @@ class ViewTest extends TestCase
     public function it_can_receive_extra_data()
     {
         $this->assertRenders('Hello, Sebastian!', View::create('withData', ['name' => 'Sebastian']));
+    }
+
+    /** @test */
+    public function it_can_receive_a_url_through_extra_data()
+    {
+        $menu = Menu::new()
+            ->view('simple', ['url' => '/'])
+            ->view('simple', ['url' => '/about'])
+            ->setActive('/about');
+
+        $this->assertRenders("
+            <ul>
+                <li>Hello, menu!\n</li>
+                <li class=\"active\">Hello, menu!\n</li>
+            </ul>
+        ", $menu);
     }
 }
