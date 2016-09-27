@@ -20,6 +20,9 @@ class View implements Item, Activatable, HasParentAttributes
     /** @var array */
     protected $data;
 
+    /** @var string|null */
+    protected $url = null;
+
     /** @var bool */
     protected $active = false;
 
