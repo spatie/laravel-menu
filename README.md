@@ -11,6 +11,8 @@ This is the Laravel version of [our menu package](https://github.com/spatie/menu
 
 Documentation is available at https://docs.spatie.be/menu.
 
+Upgrading from version 1? There's a [guide](https://github.com/spatie/laravel-menu#upgrading-to-20) for that!
+
 ```php
 Menu::macro('main', function () {
     return Menu::new()
@@ -48,6 +50,17 @@ $ composer require spatie/laravel-menu
 ## Usage
 
 Documentation is available at https://docs.spatie.be/menu.
+
+## Upgrading to 2.0
+
+Upgrading to 2.0 should be pretty painless for most use cases.
+
+- Link builder methods have been renamed and now have a `to` prefix: `Link::toAction`, `Link::toRoute` and `Link::toUrl`.
+- See `spatie/menu`'s [upgrade guide](https://github.com/spatie/menu#upgrading-to-20) for more.
+
+### New features...
+
+- Added: Added a `View` item implementation to use blade views as menu items
 
 ## Changelog
 
