@@ -5,6 +5,7 @@
 [![Build Status](https://img.shields.io/travis/spatie/laravel-menu/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-menu)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/3bd62ed7-f165-470d-896e-74757b9c6023.svg?style=flat-square)](https://insight.sensiolabs.com/projects/3bd62ed7-f165-470d-896e-74757b9c6023)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-menu.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-menu)
+[![StyleCI](https://styleci.io/repos/52299893/shield?branch=master)](https://styleci.io/repos/52299893)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-menu.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-menu)
 
 This is the Laravel version of [our menu package](https://github.com/spatie/menu) adds some extras like convenience methods for generating URLs and macros.
