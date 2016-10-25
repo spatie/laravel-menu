@@ -23,7 +23,7 @@
         "spatie/menu": "^2.0.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.3",
+        "orchestra/testbench": "3.1.0|3.2.0|3.3.0",
         "phpunit/phpunit": "^5.2"
     },
     "autoload": {
