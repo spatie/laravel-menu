@@ -52,7 +52,16 @@ class LinkTest extends TestCase
     }
 
     /** @test */
-    public function it_can_be_created_for_an_action_with_parameters()
+    public function it_can_be_created_for_an_action_with_a_parameter()
+    {
+        $this->assertRenders(
+            '<a href="http://localhost/post/1">Post #1</a>',
+            Link::toAction(DummyController::class.'@post', 'Post #1', 1)
+        );
+    }
+
+    /** @test */
+    public function it_can_be_created_for_an_action_with_an_array_of_parameters()
     {
         $this->assertRenders(
             '<a href="http://localhost/post/1">Post #1</a>',
