@@ -35,12 +35,12 @@ class Menu extends BaseMenu implements Htmlable
     /**
      * @param string $path
      * @param string $text
-     * @param array $parameters
+     * @param mixed $parameters
      * @param bool|null $secure
      *
      * @return $this
      */
-    public function url(string $path, string $text, array $parameters = [], $secure = null)
+    public function url(string $path, string $text, $parameters = [], $secure = null)
     {
         return $this->add(Link::toUrl($path, $text, $parameters, $secure));
     }
@@ -48,12 +48,12 @@ class Menu extends BaseMenu implements Htmlable
     /**
      * @param string $action
      * @param string $text
-     * @param array $parameters
+     * @param mixed $parameters
      * @param bool $absolute
      *
      * @return $this
      */
-    public function action(string $action, string $text, array $parameters = [], bool $absolute = true)
+    public function action(string $action, string $text, $parameters = [], bool $absolute = true)
     {
         return $this->add(Link::toAction($action, $text, $parameters, $absolute));
     }
@@ -61,13 +61,13 @@ class Menu extends BaseMenu implements Htmlable
     /**
      * @param string $name
      * @param string $text
-     * @param array $parameters
+     * @param mixed $parameters
      * @param bool $absolute
      * @param \Illuminate\Routing\Route|null $route
      *
      * @return $this
      */
-    public function route(string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
+    public function route(string $name, string $text, $parameters = [], bool $absolute = true, $route = null)
     {
         return $this->add(Link::toRoute($name, $text, $parameters, $absolute, $route));
     }

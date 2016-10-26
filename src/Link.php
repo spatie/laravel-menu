@@ -12,12 +12,12 @@ class Link extends BaseLink
     /**
      * @param string $path
      * @param string $text
-     * @param array $parameters
+     * @param mixed $parameters
      * @param bool|null $secure
      *
      * @return static
      */
-    public static function toUrl(string $path, string $text, array $parameters = [], $secure = null)
+    public static function toUrl(string $path, string $text, $parameters = [], $secure = null)
     {
         return static::to(url($path, $parameters, $secure), $text);
     }
@@ -38,13 +38,13 @@ class Link extends BaseLink
     /**
      * @param string $name
      * @param string $text
-     * @param array $parameters
+     * @param mixed $parameters
      * @param bool $absolute
      * @param \Illuminate\Routing\Route|null $route
      *
      * @return static
      */
-    public static function toRoute(string $name, string $text, array $parameters = [], $absolute = true, $route = null)
+    public static function toRoute(string $name, string $text, $parameters = [], $absolute = true, $route = null)
     {
         return static::to(route($name, $parameters, $absolute, $route), $text);
     }
