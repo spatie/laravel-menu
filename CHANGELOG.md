@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 2.0.2 - 2016-10-26
+
+- Fixed other url helpers so they can take the same type of parameters as the Laravel's counterparts
+
 ## 2.0.1 - 2016-10-25
 
 - Fix  `Link`'s action helper so it can take the same type of parameters as the Laravel's `action` helper
