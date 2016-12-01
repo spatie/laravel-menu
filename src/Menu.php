@@ -133,7 +133,7 @@ class Menu extends BaseMenu implements Htmlable
      *
      * @return $this
      */
-    public function viewIf($condition, string $name, array $data)
+    public function viewIf($condition, string $name, array $data = null)
     {
         return $this->addIf($condition, View::create($name, $data));
     }
@@ -247,7 +247,7 @@ class Menu extends BaseMenu implements Htmlable
      *
      * @return $this
      */
-    public function viewIfCan($authorization, string $name, array $data)
+    public function viewIfCan($authorization, string $name, array $data = null)
     {
         return $this->addIfCan($authorization, View::create($name, $data));
     }
