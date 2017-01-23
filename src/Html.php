@@ -2,8 +2,8 @@
 
 namespace Spatie\Menu\Laravel;
 
-use Illuminate\Support\Traits\Macroable;
 use Spatie\Menu\Html as BaseHtml;
+use Illuminate\Support\Traits\Macroable;
 
 class Html extends BaseHtml
 {
