@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 2.1.1 - 2017-01-23
+
+- drop support for Laravel 5.1
+
 ## 2.1.0 - 2017-01-23
 
 - add support for Laravel 5.4
