@@ -2,11 +2,11 @@
 
 namespace Spatie\Menu\Laravel;
 
-use Illuminate\Support\Traits\Macroable;
-use Spatie\HtmlElement\Attributes;
-use Spatie\Menu\Activatable;
-use Spatie\Menu\HasParentAttributes;
 use Spatie\Menu\Item;
+use Spatie\Menu\Activatable;
+use Spatie\HtmlElement\Attributes;
+use Spatie\Menu\HasParentAttributes;
+use Illuminate\Support\Traits\Macroable;
 use Spatie\Menu\Traits\Activatable as ActivatableTrait;
 use Spatie\Menu\Traits\HasParentAttributes as HasParentAttributesTrait;
 
