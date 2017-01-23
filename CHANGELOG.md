@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 2.1.0 - 2017-01-23
+
+- add support for Laravel 5.4
+
 ## 2.0.3 - 2016-12-03
 
 - Added a default `$data` argument to `Menu::viewIf` and `Menu::viewIfCan`
