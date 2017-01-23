@@ -2,9 +2,9 @@
 
 namespace Spatie\Menu\Laravel\Test;
 
+use Spatie\Menu\Item;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use Spatie\Menu\Item;
 
 class TestCase extends BaseTestCase
 {
