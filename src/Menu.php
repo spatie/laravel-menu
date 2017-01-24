@@ -2,11 +2,11 @@
 
 namespace Spatie\Menu\Laravel;
 
-use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Support\Traits\Macroable;
-use Illuminate\Contracts\Auth\Access\Gate;
 use Spatie\Menu\Item;
 use Spatie\Menu\Menu as BaseMenu;
+use Illuminate\Support\Traits\Macroable;
+use Illuminate\Contracts\Auth\Access\Gate;
+use Illuminate\Contracts\Support\Htmlable;
 
 class Menu extends BaseMenu implements Htmlable
 {

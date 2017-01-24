@@ -2,8 +2,8 @@
 
 namespace Spatie\Menu\Laravel;
 
-use Illuminate\Support\Traits\Macroable;
 use Spatie\Menu\Link as BaseLink;
+use Illuminate\Support\Traits\Macroable;
 
 class Link extends BaseLink
 {

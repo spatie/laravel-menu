@@ -2,9 +2,9 @@
 
 namespace Spatie\Menu\Laravel\Test;
 
-use Illuminate\Auth\GenericUser;
 use Spatie\Menu\Laravel\Link;
 use Spatie\Menu\Laravel\Menu;
+use Illuminate\Auth\GenericUser;
 
 class AddWithPermissionsTest extends TestCase
 {
