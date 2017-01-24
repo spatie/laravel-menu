@@ -17,14 +17,14 @@
     ],
     "require": {
         "php" : "^7.0",
-        "illuminate/auth": "~5.3.0|~5.4.0",
-        "illuminate/contracts": "~5.3.0|~5.4.0",
-        "illuminate/support": "~5.3.0|~5.4.0",
+        "illuminate/auth": "~5.3.28|~5.4.0",
+        "illuminate/contracts": "~5.3.28|~5.4.0",
+        "illuminate/support": "~5.3.28|~5.4.0",
         "spatie/menu": "^2.0.0"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.6",
-        "orchestra/testbench": "3.3.0|~3.4.0",
+        "orchestra/testbench": "3.3.3|~3.4.0",
         "phpunit/phpunit": "^5.2"
     },
     "autoload": {
