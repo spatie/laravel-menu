@@ -20,7 +20,7 @@ class SetActiveTest extends TestCase
         $this->assertRenders(
             '<ul>
                 <li><a href="http://localhost">Home</a></li>
-                <li class="activvve"><a href="http://localhost/post/1">Post #1</a></li>
+                <li class="active"><a href="http://localhost/post/1">Post #1</a></li>
             </ul>',
             $menu
         );
