@@ -2,13 +2,17 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 2.1.2 - 2017-02-20
+
+- Removed the unused fifthe `$route` parameter in `route`
+
 ## 2.1.1 - 2017-01-23
 
-- drop support for Laravel 5.1
+- Dropped support for Laravel 5.1
 
 ## 2.1.0 - 2017-01-23
 
-- add support for Laravel 5.4
+- Added support for Laravel 5.4
 
 ## 2.0.3 - 2016-12-03
 

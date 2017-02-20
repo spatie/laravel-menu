@@ -63,13 +63,12 @@ class Menu extends BaseMenu implements Htmlable
      * @param string $text
      * @param mixed $parameters
      * @param bool $absolute
-     * @param \Illuminate\Routing\Route|null $route
      *
      * @return $this
      */
-    public function route(string $name, string $text, $parameters = [], bool $absolute = true, $route = null)
+    public function route(string $name, string $text, $parameters = [], bool $absolute = true)
     {
-        return $this->add(Link::toRoute($name, $text, $parameters, $absolute, $route));
+        return $this->add(Link::toRoute($name, $text, $parameters, $absolute));
     }
 
     /**

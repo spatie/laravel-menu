@@ -40,12 +40,11 @@ class Link extends BaseLink
      * @param string $text
      * @param mixed $parameters
      * @param bool $absolute
-     * @param \Illuminate\Routing\Route|null $route
      *
      * @return static
      */
-    public static function toRoute(string $name, string $text, $parameters = [], $absolute = true, $route = null)
+    public static function toRoute(string $name, string $text, $parameters = [], $absolute = true)
     {
-        return static::to(route($name, $parameters, $absolute, $route), $text);
+        return static::to(route($name, $parameters, $absolute), $text);
     }
 }
