@@ -4,7 +4,7 @@ All Notable changes to `laravel-menu` will be documented in this file
 
 ## 2.1.2 - 2017-02-20
 
-- Removed the unused fifthe `$route` parameter in `route`
+- Removed the unused fifth `$route` parameter in `route`
 
 ## 2.1.1 - 2017-01-23
 
