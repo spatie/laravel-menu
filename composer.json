@@ -39,5 +39,15 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Spatie\\Menu\\Laravel\\MenuServiceProvider"
+            ],
+            "aliases": {
+                "Menu": "Spatie\\Menu\\Laravel\\MenuFacade"
+            }
+        }
     }
 }
