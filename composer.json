@@ -20,7 +20,7 @@
         "illuminate/auth": "~5.3.28|~5.4.0",
         "illuminate/contracts": "~5.3.28|~5.4.0",
         "illuminate/support": "~5.3.28|~5.4.0",
-        "spatie/menu": "^2.0.0"
+        "spatie/menu": "^2.2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.6",
