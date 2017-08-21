@@ -2,6 +2,9 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 2.1.4 - 2017-08-04
+- Bumped the menu package version requirement
+
 ## 2.1.3 - 2017-08-04
 - Fixed a regression caused by an old `use` statement
 
