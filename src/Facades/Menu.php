@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\Menu\Laravel;
+namespace Spatie\Menu\Laravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class MenuFacade extends Facade
+class Menu extends Facade
 {
     /**
      * @see \Spatie\Menu\Laravel\Menu
