@@ -49,5 +49,7 @@
                 "Menu": "Spatie\\Menu\\Laravel\\Facades\\Menu"
             }
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
