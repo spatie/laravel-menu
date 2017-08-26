@@ -231,7 +231,6 @@ class Menu extends BaseMenu implements Htmlable
      * @param bool $absolute
      *
      * @return $this
-     *
      */
     public function routeIfCan($authorization, string $name, string $text, array $parameters = [], bool $absolute = true)
     {
