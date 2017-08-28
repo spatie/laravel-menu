@@ -2,6 +2,9 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 2.1.5 - 2017-08-28
+- Code signature fixes
+
 ## 2.1.4 - 2017-08-04
 - Bumped the menu package version requirement
 
