@@ -26,6 +26,9 @@ class View implements Item, Activatable, HasParentAttributes
     /** @var bool */
     protected $active = false;
 
+    /** @var Attributes */
+    protected $parentAttributes;
+
     public function __construct(string $name, array $data = [])
     {
         $this->name = $name;

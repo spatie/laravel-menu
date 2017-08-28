@@ -116,13 +116,12 @@ class Menu extends BaseMenu implements Htmlable
      * @param string $text
      * @param array $parameters
      * @param bool $absolute
-     * @param \Illuminate\Routing\Route|null $route
      *
      * @return $this
      */
-    public function routeIf($condition, string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
+    public function routeIf($condition, string $name, string $text, array $parameters = [], bool $absolute = true)
     {
-        return $this->addIf($condition, Link::toRoute($name, $text, $parameters, $absolute, $route));
+        return $this->addIf($condition, Link::toRoute($name, $text, $parameters, $absolute));
     }
 
     /**
@@ -230,21 +229,21 @@ class Menu extends BaseMenu implements Htmlable
      * @param string $text
      * @param array $parameters
      * @param bool $absolute
-     * @param \Illuminate\Routing\Route|null $route
      *
      * @return $this
      */
-    public function routeIfCan($authorization, string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
+    public function routeIfCan($authorization, string $name, string $text, array $parameters = [], bool $absolute = true)
     {
-        return $this->addIfCan($authorization, Link::toRoute($name, $text, $parameters, $absolute, $route));
+        return $this->addIfCan($authorization, Link::toRoute($name, $text, $parameters, $absolute));
     }
 
     /**
-     * @param $condition
+     * @param $authorization
      * @param string $name
      * @param array $data
      *
      * @return $this
+     * @internal param $condition
      */
     public function viewIfCan($authorization, string $name, array $data = null)
     {
