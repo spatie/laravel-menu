@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 3.0.0 - 2017-08-??
+- Laravel 5.5 compatibility
+- Moved facade to `Spatie\Menu\Laravel\Facades\Menu`
+
 ## 2.1.5 - 2017-08-28
 - Code signature fixes
 
