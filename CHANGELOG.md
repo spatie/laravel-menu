@@ -2,6 +2,9 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 3.1.0 - 2017-02-08
+- Added: Laravel 5.6 compatibility
+
 ## 3.0.0 - 2017-08-30
 - Added: Laravel 5.5 compatibility
 - Removed: Dropped support for older Laravel versions
