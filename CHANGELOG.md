@@ -2,6 +2,9 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 3.2.0 - 2017-09-04
+- Added: Tuple notation for actions
+
 ## 3.1.1 - 2017-09-04
 - Added: Laravel 5.7 compatibility
 

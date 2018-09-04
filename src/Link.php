@@ -23,15 +23,19 @@ class Link extends BaseLink
     }
 
     /**
-     * @param string $action
+     * @param string|array $action
      * @param string $text
      * @param mixed $parameters
      * @param bool $absolute
      *
      * @return static
      */
-    public static function toAction(string $action, string $text, $parameters = [], bool $absolute = true)
+    public static function toAction($action, string $text, $parameters = [], bool $absolute = true)
     {
+        if (is_array($action)) {
+            $action = implode('@', $action);
+        }
+
         return static::to(action($action, $parameters, $absolute), $text);
     }
 

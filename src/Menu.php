@@ -46,14 +46,14 @@ class Menu extends BaseMenu implements Htmlable
     }
 
     /**
-     * @param string $action
+     * @param string|array $action
      * @param string $text
      * @param mixed $parameters
      * @param bool $absolute
      *
      * @return $this
      */
-    public function action(string $action, string $text, $parameters = [], bool $absolute = true)
+    public function action($action, string $text, $parameters = [], bool $absolute = true)
     {
         return $this->add(Link::toAction($action, $text, $parameters, $absolute));
     }

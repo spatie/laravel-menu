@@ -52,6 +52,15 @@ class LinkTest extends TestCase
     }
 
     /** @test */
+    public function it_can_be_created_for_an_action_using_tuple_notation()
+    {
+        $this->assertRenders(
+            '<a href="http://localhost">Home</a>',
+            Link::toAction([DummyController::class, 'home'], 'Home')
+        );
+    }
+
+    /** @test */
     public function it_can_be_created_for_an_action_with_a_parameter()
     {
         $this->assertRenders(
