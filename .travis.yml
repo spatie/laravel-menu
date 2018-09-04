@@ -15,4 +15,4 @@ before_script:
   - travis_wait composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
 
 script:
-  - vendor/bin/phpunit --testdox
+  - vendor/bin/phpunit
