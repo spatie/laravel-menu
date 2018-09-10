@@ -2,8 +2,11 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 3.2.1 - 2018-09-10
+- Fixed: `actionIf` & `actionIfCan` signatures for Laravel 5.7 callable action syntax
+
 ## 3.2.0 - 2018-09-04
-- Added: Tuple notation for actions
+- Added: Support for Laravel 5.7 callable action syntax
 
 ## 3.1.1 - 2018-09-04
 - Added: Laravel 5.7 compatibility
