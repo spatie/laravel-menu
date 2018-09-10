@@ -98,14 +98,14 @@ class Menu extends BaseMenu implements Htmlable
 
     /**
      * @param bool $condition
-     * @param string $action
+     * @param string|array $action
      * @param string $text
      * @param array $parameters
      * @param bool $absolute
      *
      * @return $this
      */
-    public function actionIf($condition, string $action, string $text, array $parameters = [], bool $absolute = true)
+    public function actionIf($condition, $action, string $text, array $parameters = [], bool $absolute = true)
     {
         return $this->addIf($condition, Link::toAction($action, $text, $parameters, $absolute));
     }
@@ -211,14 +211,14 @@ class Menu extends BaseMenu implements Htmlable
 
     /**
      * @param string|array $authorization
-     * @param string $action
+     * @param string|array $action
      * @param string $text
      * @param array $parameters
      * @param bool $absolute
      *
      * @return $this
      */
-    public function actionIfCan($authorization, string $action, string $text, array $parameters = [], bool $absolute = true)
+    public function actionIfCan($authorization, $action, string $text, array $parameters = [], bool $absolute = true)
     {
         return $this->addIfCan($authorization, Link::toAction($action, $text, $parameters, $absolute));
     }
