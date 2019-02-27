@@ -2,7 +2,7 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
-## 3.3.0 - 2019-02-27
+## 3.3.1 - 2019-02-27
 - Added: Laravel 5.8 compatibility
 - Removed: PHP 7.0 support
 
