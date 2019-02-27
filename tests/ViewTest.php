@@ -31,13 +31,12 @@ class ViewTest extends TestCase
     {
         $menu = Menu::new()
             ->view('simple', ['url' => '/'])
-            ->view('simple', ['url' => '/about'])
-            ->setActive('/about');
+            ->view('simple', ['url' => '/about']);
 
         $this->assertRenders("
             <ul>
                 <li>Hello, menu!\n</li>
-                <li class=\"active\">Hello, menu!\n</li>
+                <li>Hello, menu!\n</li>
             </ul>
         ", $menu);
     }

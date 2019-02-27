@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 3.3.0 - 2019-02-27
+- Added: Laravel 5.8 compatibility
+- Removed: PHP 7.0 support
+
 ## 3.2.1 - 2018-09-10
 - Fixed: `actionIf` & `actionIfCan` signatures for Laravel 5.7 callable action syntax
 
