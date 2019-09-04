@@ -8,7 +8,7 @@ use Illuminate\Auth\GenericUser;
 
 class AddWithPermissionsTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -106,7 +106,7 @@ class AddWithPermissionsTest extends TestCase
     {
         $this->assertRenders(
             '<ul><li><a href="http://localhost">Home</a></li></ul>',
-            Menu::new()->actionIfCan('computerSaysYes', DummyController::class.'@home', 'Home')
+            Menu::new()->actionIfCan('computerSaysYes', DummyController::class . '@home', 'Home')
         );
     }
 
@@ -115,7 +115,7 @@ class AddWithPermissionsTest extends TestCase
     {
         $this->assertRenders(
             '<ul></ul>',
-            Menu::new()->actionIfCan('computerSaysNo', DummyController::class.'@home', 'Home')
+            Menu::new()->actionIfCan('computerSaysNo', DummyController::class . '@home', 'Home')
         );
     }
 

@@ -8,12 +8,12 @@ use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
-        $this->app['router']->get('/', ['as' => 'home', 'uses' => DummyController::class.'@home']);
-        $this->app['router']->get('/post/{id}', ['as' => 'post', 'uses' => DummyController::class.'@post']);
+        $this->app['router']->get('/', ['as' => 'home', 'uses' => DummyController::class . '@home']);
+        $this->app['router']->get('/post/{id}', ['as' => 'post', 'uses' => DummyController::class . '@post']);
 
         $this->app->make(Gate::class)->define('computerSaysYes', function () {
             return true;
@@ -30,7 +30,7 @@ class TestCase extends BaseTestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('view.paths', [__DIR__.'/resources/views']);
+        $app['config']->set('view.paths', [__DIR__ . '/resources/views']);
     }
 
     protected function assertRenders(string $expected, Item $item, string $message = '')
@@ -42,7 +42,7 @@ class TestCase extends BaseTestCase
         );
     }
 
-    protected function sanitizeHtmlWhitespace(string $subject) : string
+    protected function sanitizeHtmlWhitespace(string $subject): string
     {
         $find = ['/>\s+</', '/(^\s+)|(\s+$)/'];
         $replace = ['><', ''];
