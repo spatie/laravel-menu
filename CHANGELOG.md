@@ -2,8 +2,11 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 3.5.0 - 2020-03-03
+- Added: Laravel 7 compatibility
+
 ## 3.4.0 - 2019-09-03
-- Added: Laravel 6.0 compatibility
+- Added: Laravel 6 compatibility
 
 ## 3.3.1 - 2019-02-27
 - Added: Laravel 5.8 compatibility
