@@ -2,11 +2,11 @@
 
 namespace Spatie\Menu\Laravel;
 
-use Spatie\Menu\Item;
-use Spatie\Menu\Menu as BaseMenu;
-use Illuminate\Support\Traits\Macroable;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Support\Traits\Macroable;
+use Spatie\Menu\Item;
+use Spatie\Menu\Menu as BaseMenu;
 
 class Menu extends BaseMenu implements Htmlable
 {
@@ -182,7 +182,7 @@ class Menu extends BaseMenu implements Htmlable
      */
     public function submenuIfCan($authorization, $header, $menu = null)
     {
-        list($authorization, $header, $menu) = $this->parseSubmenuIfCanArgs(...func_get_args());
+        [$authorization, $header, $menu] = $this->parseSubmenuIfCanArgs(...func_get_args());
 
         $menu = $this->createSubmenuMenu($menu);
         $header = $this->createSubmenuHeader($header);
@@ -253,7 +253,7 @@ class Menu extends BaseMenu implements Htmlable
     /**
      * @return string
      */
-    public function toHtml() : string
+    public function toHtml(): string
     {
         return $this->render();
     }

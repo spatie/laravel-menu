@@ -9,7 +9,7 @@ class Menu extends Facade
     /**
      * @see \Spatie\Menu\Laravel\Menu
      */
-    protected static function getFacadeAccessor() : string
+    protected static function getFacadeAccessor(): string
     {
         return 'menu';
     }
