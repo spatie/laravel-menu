@@ -44,8 +44,8 @@ class TestCase extends BaseTestCase
 
     protected function sanitizeHtmlWhitespace(string $subject): string
     {
-        $find = ['/>\s+</', '/(^\s+)|(\s+$)/'];
-        $replace = ['><', ''];
+        $find = ['/>\s+</', '/(^\s+)|(\s+$)/', "~\r\n?~"];
+        $replace = ['><', '', "\n"];
 
         return preg_replace($find, $replace, $subject);
     }
