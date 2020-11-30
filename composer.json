@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.3|^8.0",
         "illuminate/auth": "^7.0|^8.0",
         "illuminate/contracts": "^7.0|^8.0",
         "illuminate/support": "^7.0|^8.0",
@@ -25,7 +25,7 @@
     "require-dev": {
         "fzaninotto/faker": "^1.9",
         "orchestra/testbench": "^5.0|^6.0",
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^9.4"
     },
     "autoload": {
         "psr-4": {
