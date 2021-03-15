@@ -77,4 +77,38 @@ class LinkTest extends TestCase
             Link::toAction(DummyController::class.'@post', 'Post #1', ['id' => 1])
         );
     }
+
+    /** @test */
+    public function it_can_be_created_for_a_url_with_javascript_operator_void()
+    {
+        $this->assertRenders(
+            '<a href="javascript:void(0);">Home</a>',
+            Link::toUrl('javascript:void(0);', 'Home')
+        );
+
+        $this->assertRenders(
+            '<a href="javascript:void(0);">Home</a>',
+            Link::to('javascript:void(0);', 'Home')
+        );
+
+        $this->assertRenders(
+            '<a href="javascript:;">Home</a>',
+            Link::toUrl('javascript:;', 'Home')
+        );
+
+        $this->assertRenders(
+            '<a href="javascript:;">Home</a>',
+            Link::to('javascript:;', 'Home')
+        );
+
+        $this->assertRenders(
+            '<a href="home">Home</a>',
+            Link::to('home', 'Home')
+        );
+
+        $this->assertRenders(
+            '<a href="other/javascript">Home</a>',
+            Link::to('other/javascript', 'Home')
+        );
+    }
 }
