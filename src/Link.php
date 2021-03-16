@@ -79,6 +79,7 @@ class Link extends BaseLink
 
         $attributes = new Attributes(['href' => $this->url]);
         $attributes->mergeWith($this->htmlAttributes);
+
         return $this->prepend . "<a {$attributes}>{$this->text}</a>" . $this->append;
     }
 }
