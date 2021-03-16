@@ -2,6 +2,9 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 3.7.1 - 2021-03-16
+- Support `javascript:` links
+
 ## 3.7.0 - 2020-11-30
 - Add support for PHP 8
 
