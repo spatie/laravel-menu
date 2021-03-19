@@ -2,6 +2,11 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 4.0.0 - unreleased
+- Added: PHP 8 only support
+- Changed: All syntax changed to PHP 8+
+- Removed: PHP 7.x support
+
 ## 3.7.1 - 2021-03-16
 - Support `javascript:` links
 
