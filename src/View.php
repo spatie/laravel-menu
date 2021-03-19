@@ -14,35 +14,20 @@ class View implements Item, Activatable, HasParentAttributes
 {
     use ActivatableTrait, Macroable, HasParentAttributesTrait;
 
-    /** @var string */
-    protected $name;
+    protected string|null $url = null;
 
-    /** @var array */
-    protected $data;
+    protected bool $active = false;
 
-    /** @var string|null */
-    protected $url = null;
+    protected Attributes $parentAttributes;
 
-    /** @var bool */
-    protected $active = false;
-
-    /** @var Attributes */
-    protected $parentAttributes;
-
-    public function __construct(string $name, array $data = [])
-    {
-        $this->name = $name;
-        $this->data = $data;
+    public function __construct(
+        protected string $name,
+        protected array $data = [],
+    ) {
         $this->parentAttributes = new Attributes();
     }
 
-    /**
-     * @param string $name
-     * @param array $data
-     *
-     * @return static
-     */
-    public static function create(string $name, array $data = [])
+    public static function create(string $name, array $data = []): static
     {
         $view = new static($name, $data);
 
@@ -53,9 +38,6 @@ class View implements Item, Activatable, HasParentAttributes
         return $view;
     }
 
-    /**
-     * @return string
-     */
     public function render(): string
     {
         return view($this->name)
