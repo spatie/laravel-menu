@@ -14,7 +14,7 @@ class View implements Item, Activatable, HasParentAttributes
 {
     use ActivatableTrait, Macroable, HasParentAttributesTrait;
 
-    protected string|null $url = null;
+    protected string | null $url = null;
 
     protected bool $active = false;
 

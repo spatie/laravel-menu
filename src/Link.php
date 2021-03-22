@@ -10,7 +10,7 @@ class Link extends BaseLink
 {
     use Macroable;
 
-    public static function toUrl(string $path, string $text, mixed $parameters = [], bool|null $secure = null): static
+    public static function toUrl(string $path, string $text, mixed $parameters = [], bool | null $secure = null): static
     {
         return static::to(url($path, $parameters, $secure), $text);
     }
@@ -24,7 +24,7 @@ class Link extends BaseLink
         return new static($url, $text);
     }
 
-    public static function toAction(string|array $action, string $text, mixed $parameters = [], bool $absolute = true): static
+    public static function toAction(string | array $action, string $text, mixed $parameters = [], bool $absolute = true): static
     {
         if (is_array($action)) {
             $action = implode('@', $action);
