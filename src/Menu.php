@@ -27,160 +27,70 @@ class Menu extends BaseMenu implements Htmlable
      *
      * @return $this
      */
-    public function setActiveFromRequest(string $requestRoot = '/')
+    public function setActiveFromRequest(string $requestRoot = '/'): self
     {
         return $this->setActive(app('request')->url(), $requestRoot);
     }
 
-    /**
-     * @param string $path
-     * @param string $text
-     * @param mixed $parameters
-     * @param bool|null $secure
-     *
-     * @return $this
-     */
-    public function url(string $path, string $text, $parameters = [], $secure = null)
+    public function url(string $path, string $text, mixed $parameters = [], bool|null $secure = null): self
     {
         return $this->add(Link::toUrl($path, $text, $parameters, $secure));
     }
 
-    /**
-     * @param string|array $action
-     * @param string $text
-     * @param mixed $parameters
-     * @param bool $absolute
-     *
-     * @return $this
-     */
-    public function action($action, string $text, $parameters = [], bool $absolute = true)
+    public function action(string|array $action, string $text, mixed $parameters = [], bool $absolute = true): self
     {
         return $this->add(Link::toAction($action, $text, $parameters, $absolute));
     }
 
-    /**
-     * @param string $name
-     * @param string $text
-     * @param mixed $parameters
-     * @param bool $absolute
-     *
-     * @return $this
-     */
-    public function route(string $name, string $text, $parameters = [], bool $absolute = true)
+    public function route(string $name, string $text, mixed $parameters = [], bool $absolute = true): self
     {
         return $this->add(Link::toRoute($name, $text, $parameters, $absolute));
     }
 
-    /**
-     * @param string $name
-     * @param array $data
-     *
-     * @return $this
-     */
-    public function view(string $name, array $data = [])
+    public function view(string $name, array $data = []): self
     {
         return $this->add(View::create($name, $data));
     }
 
-    /**
-     * @param bool $condition
-     * @param string $path
-     * @param string $text
-     * @param array $parameters
-     * @param bool|null $secure
-     *
-     * @return $this
-     */
-    public function urlIf($condition, string $path, string $text, array $parameters = [], $secure = null)
+    public function urlIf(bool $condition, string $path, string $text, array $parameters = [], bool|null $secure = null): self
     {
         return $this->addIf($condition, Link::toUrl($path, $text, $parameters, $secure));
     }
 
-    /**
-     * @param bool $condition
-     * @param string|array $action
-     * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
-     *
-     * @return $this
-     */
-    public function actionIf($condition, $action, string $text, array $parameters = [], bool $absolute = true)
+    public function actionIf(bool $condition, string|array $action, string $text, array $parameters = [], bool $absolute = true): self
     {
         return $this->addIf($condition, Link::toAction($action, $text, $parameters, $absolute));
     }
 
-    /**
-     * @param bool $condition
-     * @param string $name
-     * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
-     *
-     * @return $this
-     */
-    public function routeIf($condition, string $name, string $text, array $parameters = [], bool $absolute = true)
+    public function routeIf(bool $condition, string $name, string $text, array $parameters = [], bool $absolute = true): self
     {
         return $this->addIf($condition, Link::toRoute($name, $text, $parameters, $absolute));
     }
 
-    /**
-     * @param $condition
-     * @param string $name
-     * @param array $data
-     *
-     * @return $this
-     */
-    public function viewIf($condition, string $name, array $data = null)
+    public function viewIf($condition, string $name, array|null $data = null): self
     {
         return $this->addIf($condition, View::create($name, $data));
     }
 
-    /**
-     * @param string|array $authorization
-     * @param \Spatie\Menu\Item $item
-     *
-     * @return $this
-     */
-    public function addIfCan($authorization, Item $item)
+    public function addIfCan(string|array $authorization, Item $item): self
     {
-        $ablityArguments = is_array($authorization) ? $authorization : [$authorization];
-        $ability = array_shift($ablityArguments);
+        $abilityArguments = is_array($authorization) ? $authorization : [$authorization];
+        $ability = array_shift($abilityArguments);
 
-        return $this->addIf(app(Gate::class)->allows($ability, $ablityArguments), $item);
+        return $this->addIf(app(Gate::class)->allows($ability, $abilityArguments), $item);
     }
 
-    /**
-     * @param string|array $authorization
-     * @param string $url
-     * @param string $text
-     *
-     * @return $this
-     */
-    public function linkIfCan($authorization, string $url, string $text)
+    public function linkIfCan(string|array $authorization, string $url, string $text): self
     {
         return $this->addIfCan($authorization, Link::to($url, $text));
     }
 
-    /**
-     * @param string|array $authorization
-     * @param string $html
-     *
-     * @return \Spatie\Menu\Laravel\Menu
-     */
-    public function htmlIfCan($authorization, string $html)
+    public function htmlIfCan(string|array $authorization, string $html): Menu
     {
         return $this->addIfCan($authorization, Html::raw($html));
     }
 
-    /**
-     * @param string|array $authorization
-     * @param callable|\Spatie\Menu\Menu|\Spatie\Menu\Item $header
-     * @param callable|\Spatie\Menu\Menu|null $menu
-     *
-     * @return $this
-     */
-    public function submenuIfCan($authorization, $header, $menu = null)
+    public function submenuIfCan(string|array $authorization, callable|BaseMenu|Item $header, callable|BaseMenu|null $menu = null): self
     {
         [$authorization, $header, $menu] = $this->parseSubmenuIfCanArgs(...func_get_args());
 
@@ -195,64 +105,29 @@ class Menu extends BaseMenu implements Htmlable
         return array_merge([$authorization], $this->parseSubmenuArgs($args));
     }
 
-    /**
-     * @param string|array $authorization
-     * @param string $path
-     * @param string $text
-     * @param array $parameters
-     * @param bool|null $secure
-     *
-     * @return $this
-     */
-    public function urlIfCan($authorization, string $path, string $text, array $parameters = [], $secure = null)
+    public function urlIfCan(string|array $authorization, string $path, string $text, array $parameters = [], bool|null $secure = null): self
     {
         return $this->addIfCan($authorization, Link::toUrl($path, $text, $parameters, $secure));
     }
 
-    /**
-     * @param string|array $authorization
-     * @param string|array $action
-     * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
-     *
-     * @return $this
-     */
-    public function actionIfCan($authorization, $action, string $text, array $parameters = [], bool $absolute = true)
+    public function actionIfCan(string|array $authorization, string|array $action, string $text, array $parameters = [], bool $absolute = true): self
     {
         return $this->addIfCan($authorization, Link::toAction($action, $text, $parameters, $absolute));
     }
 
-    /**
-     * @param string|array $authorization
-     * @param string $name
-     * @param string $text
-     * @param array $parameters
-     * @param bool $absolute
-     *
-     * @return $this
-     */
-    public function routeIfCan($authorization, string $name, string $text, array $parameters = [], bool $absolute = true)
+    public function routeIfCan(string|array $authorization, string $name, string $text, array $parameters = [], bool $absolute = true): self
     {
         return $this->addIfCan($authorization, Link::toRoute($name, $text, $parameters, $absolute));
     }
 
     /**
-     * @param $authorization
-     * @param string $name
-     * @param array $data
-     *
-     * @return $this
      * @internal param $condition
      */
-    public function viewIfCan($authorization, string $name, array $data = null)
+    public function viewIfCan(string|array $authorization, string $name, array|null $data = null): self
     {
         return $this->addIfCan($authorization, View::create($name, $data));
     }
 
-    /**
-     * @return string
-     */
     public function toHtml(): string
     {
         return $this->render();

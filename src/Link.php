@@ -10,21 +10,12 @@ class Link extends BaseLink
 {
     use Macroable;
 
-
-    /**
-     * @param string $path
-     * @param string $text
-     * @param mixed $parameters
-     * @param bool|null $secure
-     *
-     * @return static
-     */
-    public static function toUrl(string $path, string $text, $parameters = [], $secure = null)
+    public static function toUrl(string $path, string $text, mixed $parameters = [], bool|null $secure = null): static
     {
         return static::to(url($path, $parameters, $secure), $text);
     }
 
-    public static function to(string $url, string $text)
+    public static function to(string $url, string $text): static
     {
         if (strpos($url, 'javascript:void(0);') || strpos($url, 'javascript:;')) {
             $url = '/' . $url;
@@ -33,15 +24,7 @@ class Link extends BaseLink
         return new static($url, $text);
     }
 
-    /**
-     * @param string|array $action
-     * @param string $text
-     * @param mixed $parameters
-     * @param bool $absolute
-     *
-     * @return static
-     */
-    public static function toAction($action, string $text, $parameters = [], bool $absolute = true)
+    public static function toAction(string|array $action, string $text, mixed $parameters = [], bool $absolute = true): static
     {
         if (is_array($action)) {
             $action = implode('@', $action);
@@ -50,22 +33,11 @@ class Link extends BaseLink
         return static::to(action($action, $parameters, $absolute), $text);
     }
 
-    /**
-     * @param string $name
-     * @param string $text
-     * @param mixed $parameters
-     * @param bool $absolute
-     *
-     * @return static
-     */
-    public static function toRoute(string $name, string $text, $parameters = [], $absolute = true)
+    public static function toRoute(string $name, string $text, mixed $parameters = [], bool $absolute = true): static
     {
         return static::to(route($name, $parameters, $absolute), $text);
     }
 
-    /**
-     * @return string
-     */
     public function render(): string
     {
         if (strpos($this->url, 'javascript:void(0);') || strpos($this->url, 'javascript:;')) {
