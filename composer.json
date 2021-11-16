@@ -20,7 +20,7 @@
         "illuminate/auth": "^7.24|^8.0",
         "illuminate/contracts": "^7.24|^8.0",
         "illuminate/support": "^7.24|^8.0",
-        "spatie/menu": "^2.8"
+        "spatie/menu": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",
