@@ -17,14 +17,14 @@
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/auth": "^7.24|^8.0",
-        "illuminate/contracts": "^7.24|^8.0",
-        "illuminate/support": "^7.24|^8.0",
+        "illuminate/auth": "^8.0",
+        "illuminate/contracts": "^8.71",
+        "illuminate/support": "^8.71",
         "spatie/menu": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",
-        "orchestra/testbench": "^5.9|^6.2",
+        "orchestra/testbench": "^6.23",
         "phpunit/phpunit": "^9.4"
     },
     "autoload": {
