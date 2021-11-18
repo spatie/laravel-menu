@@ -12,7 +12,9 @@ use Spatie\Menu\Traits\HasParentAttributes as HasParentAttributesTrait;
 
 class View implements Item, Activatable, HasParentAttributes
 {
-    use ActivatableTrait, Macroable, HasParentAttributesTrait;
+    use ActivatableTrait;
+    use Macroable;
+    use HasParentAttributesTrait;
 
     protected string | null $url = null;
 
