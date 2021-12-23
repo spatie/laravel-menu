@@ -8,7 +8,7 @@
 
 This is the Laravel version of [our menu package](https://github.com/spatie/menu) adds some extras like convenience methods for generating URLs and macros.
 
-Documentation is available at https://docs.spatie.be/menu.
+Documentation is available at https://spatie.be/docs/menu.
 
 Upgrading from version 1? There's a [guide](https://github.com/spatie/laravel-menu#upgrading-to-20) for that!
 
