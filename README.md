@@ -48,7 +48,7 @@ composer require spatie/laravel-menu
 
 ## Usage
 
-Documentation is available at https://docs.spatie.be/menu.
+Documentation is available at https://spatie.be/docs/menu.
 
 ## Changelog
 
