@@ -32,21 +32,4 @@ class TestCase extends BaseTestCase
     {
         $app['config']->set('view.paths', [__DIR__.'/resources/views']);
     }
-
-    protected function assertRenders(string $expected, Item $item, string $message = '')
-    {
-        $this->assertEquals(
-            $this->sanitizeHtmlWhitespace($expected),
-            $this->sanitizeHtmlWhitespace($item->render()),
-            $message
-        );
-    }
-
-    protected function sanitizeHtmlWhitespace(string $subject): string
-    {
-        $find = ['/>\s+</', '/(^\s+)|(\s+$)/', "/\r\n?/"];
-        $replace = ['><', '', "\n"];
-
-        return preg_replace($find, $replace, $subject);
-    }
 }

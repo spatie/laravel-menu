@@ -25,7 +25,8 @@
     "require-dev": {
         "fakerphp/faker": "^1.9",
         "orchestra/testbench": "^6.23|^7.0",
-        "phpunit/phpunit": "^9.4"
+        "phpunit/phpunit": "^9.4",
+        "pestphp/pest": "^1.22"
     },
     "autoload": {
         "psr-4": {
@@ -38,7 +39,7 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/pest"
     },
     "extra": {
         "laravel": {
@@ -51,5 +52,10 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }

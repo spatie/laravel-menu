@@ -17,7 +17,7 @@ class SetActiveTest extends TestCase
             ->add(Link::toRoute('post', 'Post #1', [1]))
             ->setActiveFromRequest();
 
-        $this->assertRenders(
+        assertRenders(
             '<ul>
                 <li><a href="http://localhost">Home</a></li>
                 <li class="active exact-active"><a href="http://localhost/post/1">Post #1</a></li>
