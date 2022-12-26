@@ -1,114 +1,92 @@
 <?php
 
-namespace Spatie\Menu\Laravel\Test;
-
 use Spatie\Menu\Laravel\Link;
+use Spatie\Menu\Laravel\Test\DummyController;
 
-class LinkTest extends TestCase
-{
-    /** @test */
-    public function it_can_be_created_for_a_url()
-    {
-        $this->assertRenders(
-            '<a href="http://localhost">Home</a>',
-            Link::toUrl('/', 'Home')
-        );
-    }
+it('can be created for a url', function () {
+    assertRenders(
+        '<a href="http://localhost">Home</a>',
+        Link::toUrl('/', 'Home')
+    );
+});
 
-    /** @test */
-    public function it_can_be_created_for_a_url_with_parameters()
-    {
-        $this->assertRenders(
-            '<a href="http://localhost/post/1">Post #1</a>',
-            Link::toUrl('post', 'Post #1', ['id' => 1])
-        );
-    }
+it('can be created for a url with parameters', function () {
+    assertRenders(
+        '<a href="http://localhost/post/1">Post #1</a>',
+        Link::toUrl('post', 'Post #1', ['id' => 1])
+    );
+});
 
-    /** @test */
-    public function it_can_be_created_for_a_route()
-    {
-        $this->assertRenders(
-            '<a href="http://localhost">Home</a>',
-            Link::toRoute('home', 'Home')
-        );
-    }
+it('can be created for a route', function () {
+    assertRenders(
+        '<a href="http://localhost">Home</a>',
+        Link::toRoute('home', 'Home')
+    );
+});
 
-    /** @test */
-    public function it_can_be_created_for_a_route_with_parameters()
-    {
-        $this->assertRenders(
-            '<a href="http://localhost/post/1">Post #1</a>',
-            Link::toRoute('post', 'Post #1', ['id' => 1])
-        );
-    }
+it('can be created for a route with parameters', function () {
+    assertRenders(
+        '<a href="http://localhost/post/1">Post #1</a>',
+        Link::toRoute('post', 'Post #1', ['id' => 1])
+    );
+});
 
-    /** @test */
-    public function it_can_be_created_for_an_action()
-    {
-        $this->assertRenders(
-            '<a href="http://localhost">Home</a>',
-            Link::toAction(DummyController::class.'@home', 'Home')
-        );
-    }
+it('can be created for an action', function () {
+    assertRenders(
+        '<a href="http://localhost">Home</a>',
+        Link::toAction(DummyController::class.'@home', 'Home')
+    );
+});
 
-    /** @test */
-    public function it_can_be_created_for_an_action_using_tuple_notation()
-    {
-        $this->assertRenders(
-            '<a href="http://localhost">Home</a>',
-            Link::toAction([DummyController::class, 'home'], 'Home')
-        );
-    }
+it('can be created for an action using tuple notation', function () {
+    assertRenders(
+        '<a href="http://localhost">Home</a>',
+        Link::toAction([DummyController::class, 'home'], 'Home')
+    );
+});
 
-    /** @test */
-    public function it_can_be_created_for_an_action_with_a_parameter()
-    {
-        $this->assertRenders(
-            '<a href="http://localhost/post/1">Post #1</a>',
-            Link::toAction(DummyController::class.'@post', 'Post #1', 1)
-        );
-    }
+it('can be created for an action with a parameter', function () {
+    assertRenders(
+        '<a href="http://localhost/post/1">Post #1</a>',
+        Link::toAction(DummyController::class.'@post', 'Post #1', 1)
+    );
+});
 
-    /** @test */
-    public function it_can_be_created_for_an_action_with_an_array_of_parameters()
-    {
-        $this->assertRenders(
-            '<a href="http://localhost/post/1">Post #1</a>',
-            Link::toAction(DummyController::class.'@post', 'Post #1', ['id' => 1])
-        );
-    }
+it('can be created for an action with an array of parameters', function () {
+    assertRenders(
+        '<a href="http://localhost/post/1">Post #1</a>',
+        Link::toAction(DummyController::class.'@post', 'Post #1', ['id' => 1])
+    );
+});
 
-    /** @test */
-    public function it_can_be_created_for_a_url_with_javascript_operator_void()
-    {
-        $this->assertRenders(
-            '<a href="javascript:void(0);">Home</a>',
-            Link::toUrl('javascript:void(0);', 'Home')
-        );
+it('can be created for a url with javascript operator void', function () {
+    assertRenders(
+        '<a href="javascript:void(0);">Home</a>',
+        Link::toUrl('javascript:void(0);', 'Home')
+    );
 
-        $this->assertRenders(
-            '<a href="javascript:void(0);">Home</a>',
-            Link::to('javascript:void(0);', 'Home')
-        );
+    assertRenders(
+        '<a href="javascript:void(0);">Home</a>',
+        Link::to('javascript:void(0);', 'Home')
+    );
 
-        $this->assertRenders(
-            '<a href="javascript:;">Home</a>',
-            Link::toUrl('javascript:;', 'Home')
-        );
+    assertRenders(
+        '<a href="javascript:;">Home</a>',
+        Link::toUrl('javascript:;', 'Home')
+    );
 
-        $this->assertRenders(
-            '<a href="javascript:;">Home</a>',
-            Link::to('javascript:;', 'Home')
-        );
+    assertRenders(
+        '<a href="javascript:;">Home</a>',
+        Link::to('javascript:;', 'Home')
+    );
 
-        $this->assertRenders(
-            '<a href="home">Home</a>',
-            Link::to('home', 'Home')
-        );
+    assertRenders(
+        '<a href="home">Home</a>',
+        Link::to('home', 'Home')
+    );
 
-        $this->assertRenders(
-            '<a href="other/javascript">Home</a>',
-            Link::to('other/javascript', 'Home')
-        );
-    }
-}
+    assertRenders(
+        '<a href="other/javascript">Home</a>',
+        Link::to('other/javascript', 'Home')
+    );
+});

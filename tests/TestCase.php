@@ -4,11 +4,10 @@ namespace Spatie\Menu\Laravel\Test;
 
 use Illuminate\Contracts\Auth\Access\Gate;
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use Spatie\Menu\Item;
 
 class TestCase extends BaseTestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -31,22 +30,5 @@ class TestCase extends BaseTestCase
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('view.paths', [__DIR__.'/resources/views']);
-    }
-
-    protected function assertRenders(string $expected, Item $item, string $message = '')
-    {
-        $this->assertEquals(
-            $this->sanitizeHtmlWhitespace($expected),
-            $this->sanitizeHtmlWhitespace($item->render()),
-            $message
-        );
-    }
-
-    protected function sanitizeHtmlWhitespace(string $subject): string
-    {
-        $find = ['/>\s+</', '/(^\s+)|(\s+$)/', "/\r\n?/"];
-        $replace = ['><', '', "\n"];
-
-        return preg_replace($find, $replace, $subject);
     }
 }
