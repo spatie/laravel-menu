@@ -2,6 +2,19 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 4.1.1 - 2023-01-19
+
+### What's Changed
+
+- Add PHP 8.2 Support by @patinthehat in https://github.com/spatie/laravel-menu/pull/129
+- Refactor tests to pest by @AyoobMH in https://github.com/spatie/laravel-menu/pull/130
+
+### New Contributors
+
+- @AyoobMH made their first contribution in https://github.com/spatie/laravel-menu/pull/130
+
+**Full Changelog**: https://github.com/spatie/laravel-menu/compare/4.1.0...4.1.1
+
 ## 4.1.0 - 2022-01-13
 
 - add support for Laravel 9
