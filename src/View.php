@@ -46,12 +46,12 @@ class View implements Item, Activatable, HasParentAttributes
             ->with($this->data + ['active' => $this->isActive()])
             ->render();
     }
-    
+
     public function getName(): string
     {
         return $this->name;
     }
-    
+
     public function getData(): array
     {
         return $this->data;
