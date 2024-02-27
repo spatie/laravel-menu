@@ -2,6 +2,18 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 4.2.0 - 2024-02-27
+
+### What's Changed
+
+* Laravel 11.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-menu/pull/144
+
+### New Contributors
+
+* @laravel-shift made their first contribution in https://github.com/spatie/laravel-menu/pull/144
+
+**Full Changelog**: https://github.com/spatie/laravel-menu/compare/4.1.2...4.2.0
+
 ## 4.1.2 - 2023-01-25
 
 - support Laravel 10
