@@ -2,6 +2,14 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 4.2.1 - 2025-02-21
+
+### What's Changed
+
+* Laravel 12.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-menu/pull/147
+
+**Full Changelog**: https://github.com/spatie/laravel-menu/compare/4.2.0...4.2.1
+
 ## 4.2.0 - 2024-02-27
 
 ### What's Changed
