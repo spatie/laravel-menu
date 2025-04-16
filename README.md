@@ -1,12 +1,22 @@
-# Html Menu Generator for Laravel
+<div align="left">
+    <a href="https://spatie.be/open-source?utm_source=github&utm_medium=banner&utm_campaign=laravel-menu">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://spatie.be/packages/header/laravel-menu/html/dark.webp">
+        <img alt="Logo for laravel-menu" src=" https://spatie.be/packages/header/laravel-menu/html/light.webp" height="190">
+      </picture>
+    </a>
+
+<h1>Fluent interface to build HTML menus in Laravel</h1>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-menu.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-menu)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 ![Test Status](https://img.shields.io/github/workflow/status/spatie/laravel-menu/run-tests?label=tests)
 ![Code Style Status](https://img.shields.io/github/workflow/status/spatie/laravel-menu/Check%20&%20fix%20styling?label=code%20style)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-menu.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-menu)
+    
+</div>
 
-This is the Laravel version of [our menu package](https://github.com/spatie/menu) adds some extras like convenience methods for generating URLs and macros.
+This is the Laravel version of [our menu package](https://github.com/spatie/menu), adding some extras like convenient methods for generating URLs and macros.
 
 Documentation is available at https://spatie.be/docs/menu.
 
