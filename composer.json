@@ -26,7 +26,7 @@
         "fakerphp/faker": "^1.9",
         "orchestra/testbench": "^6.23|^7.0|^8.0|^9.0|^10.0|^11.0",
         "phpunit/phpunit": "^9.4|^10.5|^11.5.3|^12.5.12",
-        "pestphp/pest": "^1.22|^2.34|^3.7"
+        "pestphp/pest": "^1.22|^2.34|^3.7|^4.0"
     },
     "autoload": {
         "psr-4": {
