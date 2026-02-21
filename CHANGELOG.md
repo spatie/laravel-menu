@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-menu` will be documented in this file
 
+## 4.2.2 - 2026-02-21
+
+Add Laravel 13 support
+
 ## 4.2.1 - 2025-02-21
 
 ### What's Changed
