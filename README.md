@@ -10,8 +10,8 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-menu.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-menu)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-![Test Status](https://img.shields.io/github/workflow/status/spatie/laravel-menu/run-tests?label=tests)
-![Code Style Status](https://img.shields.io/github/workflow/status/spatie/laravel-menu/Check%20&%20fix%20styling?label=code%20style)
+![Test Status](https://github.com/spatie/laravel-menu/actions/workflows/run-tests.yml/badge.svg)
+![Code Style Status](https://github.com/spatie/laravel-menu/actions/workflows/php-cs-fixer.yml/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-menu.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-menu)
     
 </div>
