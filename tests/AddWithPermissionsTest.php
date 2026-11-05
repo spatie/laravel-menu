@@ -6,7 +6,7 @@ use Spatie\Menu\Laravel\Menu;
 use Spatie\Menu\Laravel\Test\DummyController;
 
 beforeEach(function () {
-    auth()->login(new GenericUser(['id' => 1]));
+    $this->actingAs(new GenericUser(['id' => 1]));
 });
 
 it('adds an item if the user has a certain ability', function () {
